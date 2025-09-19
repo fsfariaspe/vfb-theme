@@ -1,0 +1,24 @@
+{
+  "name": "vfb-theme",
+  "version": "1.0.0",
+  "description": "Tema WordPress para Viaje Fácil Brasil",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "echo 'Building CSS...'",
+    "build:js": "echo 'Building JS...'",
+    "watch": "npm run watch:css & npm run watch:js",
+    "watch:css": "echo 'Watching CSS...'",
+    "watch:js": "echo 'Watching JS...'",
+    "dev": "npm run watch"
+  },
+  "keywords": ["wordpress", "theme", "travel", "brasil"],
+  "author": "Flavio Farias",
+  "license": "GPL-2.0+",
+  "devDependencies": {
+    "sass": "^1.69.5",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0"
+  }
+}
