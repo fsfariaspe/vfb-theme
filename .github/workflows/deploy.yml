@@ -1,4 +1,4 @@
-name: Deploy WordPress Theme
+name: Deploy WordPress Theme - Nuvem Hospedagem
 
 on:
   push:
@@ -26,20 +26,28 @@ jobs:
       run: |
         npm run build
         
-    - name: Deploy to server
+    - name: Deploy to Nuvem Hospedagem
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ secrets.FTP_DIRECTORY }}
+        protocol: ftp
+        port: 21
+        timeout: 120000
         exclude: |
           **/.git*
           **/.git*/**
           **/node_modules/**
           **/.github/**
           **/.vscode/**
-          **/README.md
+          **/README*.md
+          **/DEPLOY-SETUP.md
           **/package*.json
           **/webpack.config.js
           **/.gitignore
+          **/DOCUMENTACAO*.md
+          **/ESTRUTURA*.md
+          **/INSTALACAO*.md
+          **/referencias/**
