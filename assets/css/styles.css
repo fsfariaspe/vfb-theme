@@ -1,3 +1,34 @@
+/* Ajuste para páginas internas (ex: Quem Somos) */
+.main-content, .page, .single, .site-main {
+  margin-top: 100px;
+  padding-top: 2rem;
+}
+
+.page h1, .main-content h1, .entry-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+.page h2, .main-content h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #2563eb;
+  text-align: center;
+}
+
+.page p, .main-content p {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
 /* ========================================
    VIAJE FÁCIL BRASIL - ESTILOS CUSTOMIZADOS
    ======================================== */
