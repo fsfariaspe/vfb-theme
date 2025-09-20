@@ -154,7 +154,7 @@ header {
   .desktop-menu {
     display: none;
   }
-  
+
   .mobile-menu-btn {
     display: flex;
   }
@@ -642,28 +642,28 @@ header {
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.1rem;
   }
-  
+
   .search-form {
     grid-template-columns: 1fr;
     padding: 1.5rem;
   }
-  
+
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .promotions-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .hero-bg {
     min-height: 70vh;
   }
-  
+
   .footer-links {
     text-align: center;
   }
@@ -673,19 +673,19 @@ header {
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1rem;
   }
-  
+
   .search-form {
     padding: 1rem;
   }
-  
+
   .hero-bg {
     min-height: 60vh;
   }
-  
+
   #chat-window {
     width: 90%;
     height: 80%;
