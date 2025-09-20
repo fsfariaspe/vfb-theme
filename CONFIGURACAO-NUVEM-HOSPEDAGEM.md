@@ -15,12 +15,13 @@ Guia específico para configurar o deploy automático do tema VFB na **Nuvem Hos
 2. Vá para **"FTP"** ou **"Gerenciador de Arquivos"**
 3. Localize as informações de acesso FTP
 
-### 1.2 Informações Necessárias
-Você precisará de:
-- **Servidor FTP:** (ex: ftp.seudominio.com.br ou IP do servidor)
-- **Usuário FTP:** (geralmente o mesmo do painel)
-- **Senha FTP:** (pode ser a mesma do painel ou específica do FTP)
-- **Diretório do tema:** `/public_html/wp-content/themes/vfb-theme/`
+### 1.2 Informações Necessárias ✅ CONFIGURADO
+Você já tem:
+- **Servidor FTP:** `ftp.viajefacilbrasil.com.br` ✅
+- **Usuário FTP:** `ftp-vfb@viajefacilbrasil.com.br` ✅
+- **Senha FTP:** (a senha que você definiu ao criar a conta FTP)
+- **Caminho base:** `/home/viajefacilbrasil.com.br/ftp-vfb`
+- **Diretório do tema:** Precisa confirmar se é `/public_html/wp-content/themes/vfb-theme/` ou outro caminho
 
 ## 🔐 Passo 2: Configurar Secrets no GitHub
 
@@ -35,19 +36,19 @@ Clique em **"New repository secret"** para cada item:
 
 #### `FTP_SERVER`
 - **Nome:** `FTP_SERVER`
-- **Valor:** Seu servidor FTP (ex: `ftp.seudominio.com.br`)
+- **Valor:** `ftp.viajefacilbrasil.com.br`
 
 #### `FTP_USERNAME`
 - **Nome:** `FTP_USERNAME`
-- **Valor:** Seu usuário FTP
+- **Valor:** `ftp-vfb@viajefacilbrasil.com.br`
 
 #### `FTP_PASSWORD`
 - **Nome:** `FTP_PASSWORD`
-- **Valor:** Sua senha FTP
+- **Valor:** (a senha que você definiu ao criar a conta FTP)
 
 #### `FTP_DIRECTORY`
 - **Nome:** `FTP_DIRECTORY`
-- **Valor:** `/public_html/wp-content/themes/vfb-theme/`
+- **Valor:** `/public_html/wp-content/themes/vfb-theme/` (precisa confirmar)
 
 ## 🎯 Passo 3: Verificar Estrutura do Tema
 
