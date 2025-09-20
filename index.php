@@ -6,32 +6,29 @@ get_header();
 <main id="main-content" style="padding: 60px 20px; text-align: center;">
   <h1>Pacotes Forfait (Queensberry)</h1>
   <div id="forfait-list">
-    <p>Carregando pacotes...</p>
+    <?php
+    $response = wp_remote_get('https://api.queensberry.com.br/Caderno/forfait');
+    if (is_wp_error($response)) {
+      echo '<p>Erro ao carregar pacotes.</p>';
+    } else {
+      $body = wp_remote_retrieve_body($response);
+      $data = json_decode($body);
+      if (is_array($data) && count($data) > 0) {
+        echo '<ul style="list-style:none;padding:0;">';
+        foreach ($data as $item) {
+          echo '<li style="margin-bottom:24px;">';
+          echo '<strong>' . esc_html($item->nome ?? 'Pacote') . '</strong><br>';
+          echo !empty($item->descricao) ? esc_html($item->descricao) . '<br>' : '';
+          echo !empty($item->periodo) ? '<em>' . esc_html($item->periodo) . '</em>' : '';
+          echo '</li>';
+        }
+        echo '</ul>';
+      } else {
+        echo '<p>Nenhum pacote encontrado.</p>';
+      }
+    }
+    ?>
   </div>
 </main>
-
-<script>
-fetch('https://api.queensberry.com.br/Caderno/forfait')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('forfait-list');
-    if (Array.isArray(data) && data.length > 0) {
-      container.innerHTML = '<ul style="list-style:none;padding:0;">' +
-        data.map(item => `
-          <li style="margin-bottom:24px;">
-            <strong>${item.nome || 'Pacote'}</strong><br>
-            ${item.descricao || ''}<br>
-            <em>${item.periodo || ''}</em>
-          </li>
-        `).join('') +
-      '</ul>';
-    } else {
-      container.innerHTML = '<p>Nenhum pacote encontrado.</p>';
-    }
-  })
-  .catch(() => {
-    document.getElementById('forfait-list').innerHTML = '<p>Erro ao carregar pacotes.</p>';
-  });
-</script>
 
 <?php get_footer(); ?>
