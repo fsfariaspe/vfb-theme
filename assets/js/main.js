@@ -94,24 +94,27 @@ function closeMobileMenu() {
   document.body.style.overflow = '';
 }
 
-// Fechar menu ao clicar em um link
-function closeMenuOnLinkClick() {
-  const menuLinks = document.querySelectorAll('.mobile-menu-list a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMobileMenu();
-    });
-  });
-}
 
-// Fechar menu com tecla ESC
-function closeMenuOnEscape() {
-  document.addEventListener('keydown', (e) => {
+// Fechar menu ao clicar em um link (evita múltiplos listeners)
+function enableMobileMenuEvents() {
+  // Fechar ao clicar em qualquer link do menu
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.mobile-menu-list a')) {
+      closeMobileMenu();
+    }
+  });
+  // Fechar ao pressionar ESC
+  document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeMobileMenu();
     }
   });
 }
+
+// Inicialização automática dos eventos do menu mobile
+document.addEventListener('DOMContentLoaded', function() {
+  enableMobileMenuEvents();
+});
 
 // ========================================
 // MOTOR DE BUSCAS - ONER TRAVEL WIDGET

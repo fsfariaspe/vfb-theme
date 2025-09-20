@@ -82,42 +82,79 @@ header {
 }
 
 /* Botão Mobile */
+
+/* Botão Mobile Hambúrguer aprimorado */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1001;
+  position: fixed;
+  top: 18px;
+  right: 18px;
   padding: 0;
 }
-
 .mobile-menu-btn span {
-  width: 25px;
+  display: block;
+  width: 28px;
   height: 3px;
-  background-color: #333;
-  margin: 2px 0;
-  transition: all 0.3s ease;
+  background: #222;
+  margin: 4px 0;
   border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.77,0,.18,1);
+}
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Menu Mobile */
-.mobile-menu {
+
+/* Overlay escuro para menu mobile */
+.mobile-menu-overlay {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
-  background: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.mobile-menu-overlay.active {
+  display: block;
+  opacity: 1;
 }
 
-.mobile-menu.active {
+/* Menu Mobile deslizante da direita */
+.mobile-menu {
   display: block;
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.08);
+  z-index: 999;
+  transition: right 0.3s cubic-bezier(.77,0,.18,1);
+  overflow-y: auto;
+}
+.mobile-menu.active {
+  right: 0;
 }
 
 .mobile-menu-list {
@@ -154,9 +191,14 @@ header {
   .desktop-menu {
     display: none;
   }
-
   .mobile-menu-btn {
     display: flex;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  .mobile-menu-overlay {
+    display: block;
   }
 }
 

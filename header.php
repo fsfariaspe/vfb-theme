@@ -44,4 +44,24 @@
             </div>
         </div>
     </div>
+    <!-- Botão Hambúrguer Mobile -->
+    <button class="mobile-menu-toggle mobile-menu-btn" aria-label="Abrir menu" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Overlay do Menu Mobile -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Menu Mobile -->
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Menu Mobile">
+        <?php
+            wp_nav_menu([
+                'theme_location' => 'primary',
+                'menu_class' => 'mobile-menu-list',
+                'container' => false,
+            ]);
+        ?>
+    </nav>
 </header>
