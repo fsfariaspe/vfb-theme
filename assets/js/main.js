@@ -51,18 +51,66 @@ const destinations = [
 ];
 
 // ========================================
-// FUNÇÕES DO MENU MOBILE
+// FUNÇÕES DO MENU MOBILE ELEGANTE
 // ========================================
 
 function toggleMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu');
-  if (mobileMenu.classList.contains('hidden')) {
-    mobileMenu.classList.remove('hidden');
-    mobileMenu.classList.add('show');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  
+  if (mobileMenu.classList.contains('active')) {
+    closeMobileMenu();
   } else {
-    mobileMenu.classList.add('hidden');
-    mobileMenu.classList.remove('show');
+    openMobileMenu();
   }
+}
+
+function openMobileMenu() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  
+  // Adicionar classes ativas
+  mobileMenu.classList.add('active');
+  mobileMenuOverlay.classList.add('active');
+  mobileMenuToggle.classList.add('active');
+  
+  // Prevenir scroll do body
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  
+  // Remover classes ativas
+  mobileMenu.classList.remove('active');
+  mobileMenuOverlay.classList.remove('active');
+  mobileMenuToggle.classList.remove('active');
+  
+  // Restaurar scroll do body
+  document.body.style.overflow = '';
+}
+
+// Fechar menu ao clicar em um link
+function closeMenuOnLinkClick() {
+  const menuLinks = document.querySelectorAll('.mobile-menu-list a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  });
+}
+
+// Fechar menu com tecla ESC
+function closeMenuOnEscape() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
 }
 
 // ========================================
@@ -294,5 +342,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize components
   initializeCarousel();
   initializeSearchTabs();
+  closeMenuOnLinkClick();
+  closeMenuOnEscape();
 });
-
