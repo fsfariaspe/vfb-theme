@@ -1,3 +1,15 @@
+// Ajuste dinâmico do espaçamento do buscador abaixo do header fixo
+function ajustarEspacoBuscador() {
+  const header = document.querySelector('header');
+  const searchSection = document.querySelector('.search-section');
+  if (header && searchSection) {
+    const headerHeight = header.offsetHeight;
+    searchSection.style.marginTop = (headerHeight + 24) + 'px'; // 24px extra para respiro
+  }
+}
+
+window.addEventListener('DOMContentLoaded', ajustarEspacoBuscador);
+window.addEventListener('resize', ajustarEspacoBuscador);
 /**
  * Viaje Fácil Brasil - JavaScript Principal
  * Funcionalidades: Menu Mobile, Motor de Busca, Chatbot, Carrossel
