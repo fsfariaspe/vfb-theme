@@ -12,10 +12,7 @@ get_header();
       echo '<p>Erro ao carregar pacotes.</p>';
     } else {
       $body = wp_remote_retrieve_body($response);
-      // DEBUG: Exibir resposta bruta da API
-      echo '<pre style="text-align:left;max-width:700px;margin:24px auto;background:#f8f8f8;padding:16px;border-radius:8px;overflow-x:auto;">';
-      echo esc_html($body);
-      echo '</pre>';
+  // (Debug removido)
       $data = json_decode($body);
       if (is_array($data) && count($data) > 0) {
         echo '<ul style="list-style:none;padding:0;">';
