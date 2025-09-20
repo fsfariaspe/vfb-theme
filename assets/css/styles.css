@@ -60,13 +60,13 @@ header .container {
   width: auto;
 }
 
-/* Menu de navegação */
-nav {
+/* Menu de navegação desktop */
+.desktop-nav {
   display: flex;
   align-items: center;
 }
 
-nav ul {
+.desktop-menu-list {
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -75,12 +75,12 @@ nav ul {
   align-items: center;
 }
 
-nav li {
+.desktop-menu-list li {
   margin: 0;
   padding: 0;
 }
 
-nav a {
+.desktop-menu-list a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -91,19 +91,8 @@ nav a {
   white-space: nowrap;
 }
 
-nav a:hover {
+.desktop-menu-list a:hover {
   color: #2563eb;
-}
-
-/* Garantir que o menu desktop apareça corretamente */
-@media (min-width: 769px) {
-  nav {
-    display: flex;
-  }
-  
-  .mobile-menu-toggle {
-    display: none;
-  }
 }
 
 /* ========================================
@@ -112,7 +101,7 @@ nav a:hover {
 
 /* Botão hambúrguer */
 .mobile-menu-toggle {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -217,6 +206,11 @@ nav a:hover {
   color: #374151;
 }
 
+.close-icon {
+  width: 24px;
+  height: 24px;
+}
+
 /* Conteúdo do menu mobile */
 .mobile-menu-content {
   flex: 1;
@@ -255,18 +249,24 @@ nav a:hover {
   border-left-color: #2563eb;
 }
 
-/* Esconder menu mobile em desktop */
-@media (min-width: 769px) {
-  .mobile-menu-toggle {
+/* Responsividade */
+@media (max-width: 768px) {
+  .desktop-nav {
     display: none;
   }
   
-  .mobile-menu-overlay {
-    display: none;
+  .mobile-menu-toggle {
+    display: flex;
   }
   
   .mobile-menu {
-    display: none;
+    width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-menu {
+    width: 100%;
   }
 }
 
@@ -777,10 +777,6 @@ nav a:hover {
   .footer-links {
     text-align: center;
   }
-  
-  .mobile-menu {
-    width: 280px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -803,10 +799,6 @@ nav a:hover {
   #chat-window {
     width: 90%;
     height: 80%;
-  }
-  
-  .mobile-menu {
-    width: 100%;
   }
 }
 

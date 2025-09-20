@@ -8,11 +8,11 @@
 ?>
 
 <!-- Navigation Menu Desktop -->
-<nav class="hidden md:flex">
+<nav class="desktop-nav">
     <?php
     wp_nav_menu(array(
         'theme_location' => 'primary',
-        'menu_class' => 'flex space-x-8',
+        'menu_class' => 'desktop-menu-list',
         'container' => false,
         'fallback_cb' => 'vfb_fallback_menu',
     ));
@@ -20,7 +20,7 @@
 </nav>
 
 <!-- Mobile Menu Button -->
-<button class="md:hidden mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menu">
+<button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menu">
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
@@ -34,7 +34,7 @@
     <div class="mobile-menu-header">
         <h3>Menu</h3>
         <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Fechar menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
