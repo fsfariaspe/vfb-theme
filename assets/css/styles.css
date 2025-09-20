@@ -55,9 +55,17 @@ header .container {
   align-items: center;
 }
 
+.logo-container {
+  flex: 0 0 auto;
+}
+
 .logo {
   height: 70px;
   width: auto;
+}
+
+.navigation-container {
+  flex: 0 0 auto;
 }
 
 /* Menu de navegação desktop */
@@ -222,10 +230,13 @@ header .container {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-menu-list li {
   border-bottom: 1px solid #f3f4f6;
+  width: 100%;
 }
 
 .mobile-menu-list li:last-child {
@@ -241,6 +252,8 @@ header .container {
   font-size: 1rem;
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
+  width: 100%;
+  text-align: left;
 }
 
 .mobile-menu-list a:hover {

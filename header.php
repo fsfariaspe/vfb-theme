@@ -32,14 +32,16 @@
     <div class="container mx-auto px-4 py-2">
         <div class="flex justify-between items-center">
             <!-- Logo -->
-            <div class="flex items-center">
+            <div class="logo-container">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/logo-principal.png" alt="<?php bloginfo('name'); ?>" class="logo">
                 </a>
             </div>
 
-            <?php get_template_part('template-parts/navigation'); ?>
+            <!-- Navigation -->
+            <div class="navigation-container">
+                <?php get_template_part('template-parts/navigation'); ?>
+            </div>
         </div>
     </div>
 </header>
-
