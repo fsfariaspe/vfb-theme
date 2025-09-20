@@ -58,7 +58,7 @@ function toggleMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  
+
   if (mobileMenu.classList.contains('active')) {
     closeMobileMenu();
   } else {
@@ -70,12 +70,12 @@ function openMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  
+
   // Adicionar classes ativas
   mobileMenu.classList.add('active');
   mobileMenuOverlay.classList.add('active');
   mobileMenuToggle.classList.add('active');
-  
+
   // Prevenir scroll do body
   document.body.style.overflow = 'hidden';
 }
@@ -84,12 +84,12 @@ function closeMobileMenu() {
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  
+
   // Remover classes ativas
   mobileMenu.classList.remove('active');
   mobileMenuOverlay.classList.remove('active');
   mobileMenuToggle.classList.remove('active');
-  
+
   // Restaurar scroll do body
   document.body.style.overflow = '';
 }
@@ -98,13 +98,13 @@ function closeMobileMenu() {
 // Fechar menu ao clicar em um link (evita múltiplos listeners)
 function enableMobileMenuEvents() {
   // Fechar ao clicar em qualquer link do menu
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     if (e.target.closest('.mobile-menu-list a')) {
       closeMobileMenu();
     }
   });
   // Fechar ao pressionar ESC
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       closeMobileMenu();
     }
@@ -112,7 +112,7 @@ function enableMobileMenuEvents() {
 }
 
 // Inicialização automática dos eventos do menu mobile
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   enableMobileMenuEvents();
 });
 

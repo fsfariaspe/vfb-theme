@@ -18,22 +18,3 @@
     ));
     ?>
 </nav>
-
-<!-- Mobile Menu Button -->
-<button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu">
-    <?php
-    wp_nav_menu(array(
-        'theme_location' => 'primary',
-        'menu_class' => 'mobile-menu-list',
-        'container' => false,
-        'fallback_cb' => 'vfb_fallback_mobile_menu',
-    ));
-    ?>
-</div>
