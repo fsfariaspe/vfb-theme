@@ -17,7 +17,7 @@
     <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/logos/favicon.ico">
     
     <!-- Motor de busca Oner -->
-    <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
+    <!-- <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css"> -->
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
