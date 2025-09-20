@@ -1,3 +1,13 @@
+// Solução universal: aplicar padding-top no body igual à altura do header fixo
+function ajustarPaddingBodyParaHeader() {
+  const header = document.querySelector('header');
+  if (header) {
+    const headerHeight = header.offsetHeight;
+    document.body.style.paddingTop = headerHeight + 'px';
+  }
+}
+window.addEventListener('DOMContentLoaded', ajustarPaddingBodyParaHeader);
+window.addEventListener('resize', ajustarPaddingBodyParaHeader);
 // Ajuste dinâmico do espaçamento do buscador abaixo do header fixo
 function ajustarEspacoBuscador() {
   const header = document.querySelector('header');
