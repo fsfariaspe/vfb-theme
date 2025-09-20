@@ -438,7 +438,7 @@ header {
 .search-section {
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   padding: 3rem 0;
-  margin-top: 90px; /* Espaço para header fixo */
+  margin-top: 160px; /* Espaço para header fixo */
   position: relative;
   z-index: 10;
 }
