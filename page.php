@@ -13,6 +13,7 @@ get_header(); ?>
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('max-w-4xl mx-auto'); ?>>
                 <header class="entry-header mb-8">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="vfb-back-btn">← Voltar para Início</a>
                     <h1 class="page-title text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                         <?php the_title(); ?>
                     </h1>
