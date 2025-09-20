@@ -1,6 +1,9 @@
 /* Ajuste para páginas internas (ex: Quem Somos) */
 /* Ajuste para páginas internas (ex: Quem Somos) */
-.main-content, .page, .single, .site-main {
+.main-content,
+.page,
+.single,
+.site-main {
   margin-top: 60px;
   padding-top: 1.2rem;
 }
@@ -16,17 +19,20 @@
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
   transition: background 0.2s, transform 0.2s;
   text-align: center;
 }
+
 .vfb-back-btn:hover {
   background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%);
   color: #fff;
   transform: translateY(-2px) scale(1.04);
 }
 
-.page h1, .main-content h1, .entry-title {
+.page h1,
+.main-content h1,
+.entry-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   font-weight: 700;
@@ -35,7 +41,8 @@
   text-align: center;
 }
 
-.page h2, .main-content h2 {
+.page h2,
+.main-content h2 {
   font-family: 'Inter', sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -44,13 +51,15 @@
   text-align: center;
 }
 
-.page p, .main-content p {
+.page p,
+.main-content p {
   font-size: 1.1rem;
   color: #374151;
   line-height: 1.7;
   margin-bottom: 1.2rem;
   text-align: center;
 }
+
 /* ========================================
    VIAJE FÁCIL BRASIL - ESTILOS CUSTOMIZADOS
    ======================================== */
@@ -438,7 +447,8 @@ header {
 .search-section {
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   padding: 3rem 0;
-  margin-top: 160px; /* Espaço para header fixo */
+  margin-top: 160px;
+  /* Espaço para header fixo */
   position: relative;
   z-index: 10;
 }

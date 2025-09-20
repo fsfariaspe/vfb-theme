@@ -4,9 +4,3 @@ Author: Flávio Soares de Farias
 Description: Tema personalizado para a agência de viagens Viaje Fácil Brasil.
 Version: 1.0
 */
-
-/* Importar Tailwind CSS */
-@import url('https://cdn.tailwindcss.com');
-
-/* Importar estilos customizados */
-@import url('./assets/css/styles.css');
