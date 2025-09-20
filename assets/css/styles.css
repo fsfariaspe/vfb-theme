@@ -19,14 +19,6 @@ body {
   padding-top: 70px;
 }
 
-/* ========================================
-   FONTES PERSONALIZADAS
-   ======================================== */
-
-.font-playfair {
-  font-family: 'Playfair Display', serif;
-}
-
 /* Container principal */
 .container {
   max-width: 1200px;
@@ -48,8 +40,7 @@ header {
   padding: 0.5rem 0;
 }
 
-/* Layout do header */
-header .container {
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,13 +51,13 @@ header .container {
   width: auto;
 }
 
-/* Menu de navegação */
-nav {
+/* Menu Desktop */
+.desktop-menu {
   display: flex;
   align-items: center;
 }
 
-nav ul {
+.desktop-menu-list {
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -75,12 +66,7 @@ nav ul {
   align-items: center;
 }
 
-nav li {
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
+.desktop-menu-list a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -91,38 +77,34 @@ nav a {
   white-space: nowrap;
 }
 
-nav a:hover {
+.desktop-menu-list a:hover {
   color: #2563eb;
 }
 
-/* Garantir que o menu desktop apareça corretamente */
-@media (min-width: 769px) {
-  nav {
-    display: flex;
-  }
-  
-  .mobile-menu-toggle {
-    display: none;
-  }
-}
-
-/* Menu mobile */
-.mobile-menu-toggle {
-  display: block;
+/* Botão Mobile */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
   background: none;
   border: none;
-  font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
+  padding: 0;
 }
 
-@media (min-width: 769px) {
-  .mobile-menu-toggle {
-    display: none;
-  }
+.mobile-menu-btn span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
-/* Menu mobile ativo */
+/* Menu Mobile */
 .mobile-menu {
   display: none;
   position: absolute;
@@ -145,7 +127,6 @@ nav a:hover {
 }
 
 .mobile-menu-list li {
-  width: 100%;
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -154,15 +135,29 @@ nav a:hover {
 }
 
 .mobile-menu-list a {
-  padding: 1rem 1.5rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
   display: block;
-  width: 100%;
+  padding: 1rem 1.5rem;
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 .mobile-menu-list a:hover {
-  background-color: #f9fafb;
+  background: #f8fafc;
+  color: #2563eb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
 }
 
 /* ========================================
