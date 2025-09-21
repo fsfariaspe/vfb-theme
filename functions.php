@@ -1,32 +1,3 @@
-// Custom Post Type: Pacote de Viagem
-function vfb_register_pacote_post_type() {
-    $labels = array(
-        'name' => 'Pacotes',
-        'singular_name' => 'Pacote',
-        'menu_name' => 'Pacotes',
-        'name_admin_bar' => 'Pacote',
-        'add_new' => 'Adicionar Novo',
-        'add_new_item' => 'Adicionar Novo Pacote',
-        'new_item' => 'Novo Pacote',
-        'edit_item' => 'Editar Pacote',
-        'view_item' => 'Ver Pacote',
-        'all_items' => 'Todos os Pacotes',
-        'search_items' => 'Buscar Pacotes',
-        'not_found' => 'Nenhum pacote encontrado.',
-        'not_found_in_trash' => 'Nenhum pacote na lixeira.'
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'has_archive' => true,
-        'rewrite' => array('slug' => 'pacotes'),
-        'supports' => array('title', 'editor', 'thumbnail'),
-        'menu_icon' => 'dashicons-palmtree',
-        'show_in_rest' => true,
-    );
-    register_post_type('pacote', $args);
-}
-add_action('init', 'vfb_register_pacote_post_type');
 <?php
 /**
  * Funções do tema Viaje Fácil Brasil
@@ -356,4 +327,36 @@ function vfb_webp_support($metadata, $attachment_id) {
     
     return $metadata;
 }
+
+/**
+ * Custom Post Type: Pacote de Viagem
+ */
+function vfb_register_pacote_post_type() {
+    $labels = array(
+        'name'               => 'Pacotes',
+        'singular_name'      => 'Pacote',
+        'menu_name'          => 'Pacotes',
+        'name_admin_bar'     => 'Pacote',
+        'add_new'            => 'Adicionar Novo',
+        'add_new_item'       => 'Adicionar Novo Pacote',
+        'new_item'           => 'Novo Pacote',
+        'edit_item'          => 'Editar Pacote',
+        'view_item'          => 'Ver Pacote',
+        'all_items'          => 'Todos os Pacotes',
+        'search_items'       => 'Buscar Pacotes',
+        'not_found'          => 'Nenhum pacote encontrado.',
+        'not_found_in_trash' => 'Nenhum pacote na lixeira.'
+    );
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'rewrite'            => array('slug' => 'pacotes'),
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'menu_icon'          => 'dashicons-palmtree',
+        'show_in_rest'       => true,
+    );
+    register_post_type('pacote', $args);
+}
+add_action('init', 'vfb_register_pacote_post_type');
 ?>
