@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viaje Fácil Brasil - Sua Agência de Viagens de Confiança</title>
+  <meta name="description"
+    content="Viaje Fácil Brasil - Agência de viagens especializada em pacotes personalizados, passagens aéreas, hospedagem e trabalhos no Japão. Realize seu sonho de viajar!">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logos/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Motor de busca Oner -->
+  <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/vitrine.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="assets/images/logos/logo-principal.png" alt="Viaje Fácil Brasil">
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#busca">Buscar Viagens</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#destinos">Destinos</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a href="https://wa.me/5581992429403" class="btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+          </a>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Realize seu sonho de viajar</h1>
+      <p class="hero-subtitle">Pacotes personalizados, passagens aéreas, hospedagem e muito mais</p>
+      <div class="hero-buttons">
+        <a href="#busca" class="btn btn-primary">Buscar Viagens</a>
+        <a href="https://wa.me/5581992429403" class="btn btn-secondary" target="_blank">Falar no WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/backgrounds/montanhas.jpg" alt="Viagem dos sonhos">
+    </div>
+  </section>
+
+  <!-- Motor de Busca Oner -->
+  <section id="busca" class="search-section">
+    <div class="container">
+      <div class="search-header">
+        <h2 class="section-title">Encontre sua próxima viagem</h2>
+        <p class="search-subtitle">Use nosso motor de busca para encontrar as melhores ofertas em passagens aéreas,
+          hotéis e pacotes</p>
+      </div>
+
+      <div class="search-tabs">
+        <button class="search-tab active" data-tab="flights">
+          <i class="fas fa-plane"></i>
+          Passagens Aéreas
+        </button>
+        <button class="search-tab" data-tab="hotels">
+          <i class="fas fa-hotel"></i>
+          Hotéis
+        </button>
+        <button class="search-tab" data-tab="packages">
+          <i class="fas fa-suitcase"></i>
+          Pacotes
+        </button>
+      </div>
+
+      <div class="search-content">
+        <!-- Motor de busca de passagens -->
+        <div class="search-panel active" id="flights-panel">
+          <div class="oner-search-widget" data-type="flights">
+            <!-- O widget da Oner será carregado aqui -->
+          </div>
+        </div>
+
+        <!-- Motor de busca de hotéis -->
+        <div class="search-panel" id="hotels-panel">
+          <div class="oner-search-widget" data-type="hotels">
+            <!-- O widget da Oner será carregado aqui -->
+          </div>
+        </div>
+
+        <!-- Motor de busca de pacotes -->
+        <div class="search-panel" id="packages-panel">
+          <div class="oner-search-widget" data-type="packages">
+            <!-- O widget da Oner será carregado aqui -->
+          </div>
+        </div>
+      </div>
+
+      <div class="search-features">
+        <div class="feature-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Busca Segura</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-clock"></i>
+          <span>Resultados Rápidos</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-tag"></i>
+          <span>Melhores Preços</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-headset"></i>
+          <span>Suporte 24/7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="services">
+    <div class="container">
+      <h2 class="section-title">Nossos Serviços</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✈️</div>
+          <h3>Passagens Aéreas</h3>
+          <p>Melhores preços e conexões para qualquer destino nacional e internacional</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏨</div>
+          <h3>Hospedagem</h3>
+          <p>Hotéis, pousadas e resorts selecionados para sua comodidade</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Pacotes Completos</h3>
+          <p>Viagens organizadas com voo, hospedagem e passeios inclusos</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3>Seguros de Viagem</h3>
+          <p>Proteção completa para sua tranquilidade durante a viagem</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>Trabalhos no Japão</h3>
+          <p>Oportunidades de trabalho e intercâmbio cultural no Japão</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Consultoria Personalizada</h3>
+          <p>Planejamento individualizado para suas necessidades específicas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinos -->
+  <section id="destinos" class="destinations">
+    <div class="container">
+      <h2 class="section-title">Destinos em Destaque</h2>
+      <div class="destinations-grid">
+        <div class="destination-card">
+          <img src="assets/images/destinations/fernando-noronha.jpg" alt="Fernando de Noronha">
+          <div class="destination-info">
+            <h3>Fernando de Noronha</h3>
+            <p>Paraíso brasileiro com praias paradisíacas</p>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="assets/images/destinations/kyoto-japao.jpg" alt="Kyoto, Japão">
+          <div class="destination-info">
+            <h3>Kyoto, Japão</h3>
+            <p>Tradição e modernidade em harmonia</p>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="assets/images/destinations/alberta-canada.jpg" alt="Alberta, Canadá">
+          <div class="destination-info">
+            <h3>Alberta, Canadá</h3>
+            <p>Montanhas majestosas e lagos cristalinos</p>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="assets/images/destinations/chapada-diamantina.jpg" alt="Chapada Diamantina">
+          <div class="destination-info">
+            <h3>Chapada Diamantina</h3>
+            <p>Cachoeiras cristalinas na Bahia</p>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="assets/images/destinations/egito.jpg" alt="Egito">
+          <div class="destination-info">
+            <h3>Egito</h3>
+            <p>Mistérios milenares e histórias antigas</p>
+          </div>
+        </div>
+        <div class="destination-card">
+          <img src="assets/images/destinations/santiago-chile.jpg" alt="Santiago, Chile">
+          <div class="destination-info">
+            <h3>Santiago, Chile</h3>
+            <p>Entre os Andes e o Pacífico</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Sobre a Viaje Fácil Brasil</h2>
+          <p>Fundada em 2018 por Flávio Soares de Farias, nossa agência nasceu com o sonho de tornar as viagens mais
+            acessíveis e memoráveis para todos os brasileiros.</p>
+          <p>Ao longo dos anos, construímos uma rede sólida de parceiros e fornecedores, sempre priorizando a qualidade
+            e a satisfação de nossos clientes.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Clientes satisfeitos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Destinos</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="assets/images/profiles/flavio-profissional.jpeg" alt="Flávio Soares de Farias">
+          <div class="about-image-info">
+            <h4>Flávio Soares de Farias</h4>
+            <p>Fundador e Diretor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="contact">
+    <div class="container">
+      <h2 class="section-title">Entre em Contato</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h4>Telefone</h4>
+              <p>(81) 99242-9403</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>E-mail</h4>
+              <p>atendimento@viajefacilbrasil.com.br</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Endereço</h4>
+              <p>Rua das Flores, 123 - Boa Viagem<br>Recife/PE - CEP: 51030-000</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>Fale conosco agora mesmo!</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <h3>Pronto para sua próxima aventura?</h3>
+          <p>Entre em contato conosco e vamos planejar a viagem dos seus sonhos!</p>
+          <a href="https://wa.me/5581992429403" class="btn btn-primary btn-large" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/images/logos/logo-footer.png" alt="Viaje Fácil Brasil">
+        </div>
+        <div class="footer-info">
+          <p>&copy; 2024 Viaje Fácil Brasil. Todos os direitos reservados.</p>
+          <p>CNPJ: 12.345.678/0001-90 | CADASTUR: 12.345.678.90</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://static.onertravel.com/widget/search/production/script.js"></script>
+  <script src="assets/js/vitrine.js"></script>
+</body>
+
+</html>
