@@ -8,13 +8,20 @@
   </div>
 </main>
 
+
 <script>
 function isMobile() {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  // Detecção mobile mais robusta
+  return (
+    typeof window.orientation !== "undefined" ||
+    navigator.userAgent.indexOf('IEMobile') !== -1 ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini|Mobile|mobile/i.test(navigator.userAgent)
+  );
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+function renderIframeOrButton() {
   var container = document.getElementById('iframe-container');
+  if (!container) return;
   if (isMobile()) {
     container.innerHTML = `
       <p style="font-size:1.2em;margin-bottom:24px;">
@@ -57,7 +64,13 @@ document.addEventListener("DOMContentLoaded", function() {
       ></iframe>
     `;
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderIframeOrButton);
+} else {
+  renderIframeOrButton();
+}
 </script>
 
 <?php get_footer(); ?>
