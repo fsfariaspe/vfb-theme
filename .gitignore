@@ -16,10 +16,12 @@ yarn-error.log*
 .env.production.local
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo
+
+# Include VS Code configuration for professional development
+# .vscode/ - keeping this for team collaboration
 
 # OS
 .DS_Store

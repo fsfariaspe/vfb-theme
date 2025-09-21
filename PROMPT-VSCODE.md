@@ -17,9 +17,13 @@ Você está trabalhando no tema WordPress **"Viaje Fácil Brasil"** para uma ag�
 - Deploy automático ativo
 - Estrutura de arquivos organizada
 
-## 🛠️ **Configuração do VSCode**
+## 🛠️ **Configuração do VSCode** ✅ IMPLEMENTADA
 
-### **1. Extensões Recomendadas:**
+> **✅ Status: Configuração profissional implementada!**  
+> Os arquivos de configuração foram criados na pasta `.vscode/`
+
+### **1. Extensões Recomendadas:** ✅ CONFIGURADO
+**Arquivo:** `.vscode/extensions.json`
 ```json
 {
   "recommendations": [
@@ -35,7 +39,8 @@ Você está trabalhando no tema WordPress **"Viaje Fácil Brasil"** para uma ag�
 }
 ```
 
-### **2. Configurações do Workspace (.vscode/settings.json):**
+### **2. Configurações do Workspace (.vscode/settings.json):** ✅ CONFIGURADO
+**Arquivo:** `.vscode/settings.json`
 ```json
 {
   "emmet.includeLanguages": {
@@ -55,7 +60,8 @@ Você está trabalhando no tema WordPress **"Viaje Fácil Brasil"** para uma ag�
 }
 ```
 
-### **3. Tasks do VSCode (.vscode/tasks.json):**
+### **3. Tasks do VSCode (.vscode/tasks.json):** ✅ CONFIGURADO
+**Arquivo:** `.vscode/tasks.json`
 ```json
 {
   "version": "2.0.0",
@@ -86,22 +92,48 @@ Você está trabalhando no tema WordPress **"Viaje Fácil Brasil"** para uma ag�
 }
 ```
 
+## 🚀 **Como Usar a Configuração VS Code**
+
+### **🎯 Primeira Configuração:**
+1. **Abra o projeto no VS Code**
+2. **Aceite as extensões sugeridas** (notificação automática)
+3. **Reinicie o VS Code** para aplicar todas as configurações
+4. **Pronto!** Ambiente profissional configurado
+
+### **⚡ Deploy Rápido com Task:**
+1. `Ctrl+Shift+P` (Windows/Linux) ou `Cmd+Shift+P` (Mac)
+2. Digite: `Tasks: Run Task`
+3. Selecione: `Deploy to Server`
+4. Digite a mensagem do commit
+5. Deploy automático executado! 🚀
+
+### **📁 Arquivos Criados:**
+- `.vscode/extensions.json` - Extensões recomendadas
+- `.vscode/settings.json` - Configurações do workspace  
+- `.vscode/tasks.json` - Task de deploy automático
+- `.vscode/README.md` - Guia completo de uso
+
 ## 📁 **Estrutura de Arquivos Atual**
 
 ```
 vfb-theme/
-├── .github/workflows/deploy.yml    # Deploy automático
+├── .vscode/                         # ✅ Configuração VS Code
+│   ├── extensions.json              # Extensões recomendadas
+│   ├── settings.json                # Configurações workspace
+│   ├── tasks.json                   # Task deploy automático
+│   └── README.md                    # Guia de uso
+├── .github/workflows/deploy.yml     # Deploy automático
 ├── assets/
-│   ├── css/styles.css              # Estilos principais
-│   ├── js/main.js                  # JavaScript
-│   └── images/                     # Imagens do tema
-├── includes/                       # Funções PHP
-├── template-parts/                 # Partes de templates
-├── header.php                      # Cabeçalho
-├── footer.php                      # Rodapé
-├── index.php                       # Página principal
-├── functions.php                   # Funções do tema
-└── style.css                       # Informações do tema
+│   ├── css/styles.css               # Estilos principais
+│   ├── js/main.js                   # JavaScript
+│   └── images/                      # Imagens do tema
+├── includes/                        # Funções PHP
+├── template-parts/                  # Partes de templates
+├── header.php                       # Cabeçalho
+├── footer.php                       # Rodapé
+├── index.php                        # Página principal
+├── functions.php                    # Funções do tema
+└── style.css                        # Informações do tema
 ```
 
 ## 🎯 **Próximas Tarefas Prioritárias**
