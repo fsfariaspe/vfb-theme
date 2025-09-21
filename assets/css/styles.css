@@ -1,3 +1,43 @@
+/* Submenu Desktop */
+.desktop-menu-list li {
+  position: relative;
+}
+
+.desktop-menu-list li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-radius: 0 0 10px 10px;
+  padding: 0.5rem 0;
+  z-index: 1002;
+}
+
+.desktop-menu-list li:hover > ul,
+.desktop-menu-list li:focus-within > ul {
+  display: block;
+}
+
+.desktop-menu-list li ul li {
+  display: block;
+  border: none;
+}
+
+.desktop-menu-list li ul a {
+  padding: 0.7rem 1.5rem;
+  color: #222;
+  font-size: 1rem;
+  border-radius: 0;
+  background: none;
+}
+
+.desktop-menu-list li ul a:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
 /* TESTE VFB: Se você está vendo este comentário no inspecionar > Network > styles.css, o CSS está sendo carregado do tema! */
 /* Ajuste para páginas internas (ex: Quem Somos) */
 /* Ajuste para páginas internas (ex: Quem Somos) */
