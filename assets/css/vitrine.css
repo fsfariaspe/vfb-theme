@@ -1813,6 +1813,33 @@ header .nav .nav-list li a:hover {
     color: #34d399;
 }
 
+.verify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(96, 165, 250, 0.1);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.verify-link:hover {
+    background: rgba(96, 165, 250, 0.2);
+    color: #93c5fd;
+    transform: translateY(-1px);
+    border-color: rgba(96, 165, 250, 0.4);
+}
+
+.verify-link i {
+    font-size: 0.8rem;
+}
+
 /* Animação do spinner de loading */
 @keyframes spin {
     0% {
@@ -1879,6 +1906,16 @@ header .nav .nav-list li a:hover {
     .badge-status {
         font-size: 1rem;
         font-weight: 600;
+    }
+
+    .verify-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+        margin-top: 0.5rem;
+    }
+
+    .verify-link i {
+        font-size: 0.7rem;
     }
 }
 
