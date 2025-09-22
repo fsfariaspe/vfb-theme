@@ -1579,7 +1579,7 @@ header .nav .nav-list li a:hover {
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
-    z-index: 3;
+    z-index: 2;
     pointer-events: none;
 }
 
@@ -1598,6 +1598,7 @@ header .nav .nav-list li a:hover {
     font-size: 1.5rem;
     cursor: pointer;
     transition: var(--transition);
+    z-index: 2;
     pointer-events: auto;
     display: flex;
     align-items: center;
@@ -1654,13 +1655,13 @@ header .nav .nav-list li a:hover {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    z-index: 3;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    backdrop-filter: none;
-    border: none;
-    box-shadow: none;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .destination-title {
@@ -1669,14 +1670,14 @@ header .nav .nav-list li a:hover {
     font-weight: 700;
     color: white;
     margin-bottom: 0.5rem;
-    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .destination-subtitle {
     font-size: 1.2rem;
     color: white;
     font-weight: 400;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     margin: 0;
 }
 
