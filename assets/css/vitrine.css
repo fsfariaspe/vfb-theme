@@ -1123,12 +1123,49 @@ header .nav .nav-list li a:hover {
 }
 
 @media (max-width: 768px) {
+    .header-content {
+        padding: 1rem 0;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .logo-section {
+        flex: 1;
+        min-width: 150px;
+    }
+    
+    .logo img {
+        height: 60px;
+        width: auto;
+    }
+    
+    .nav-section {
+        order: 3;
+        width: 100%;
+    }
+    
+    .header-cta {
+        order: 2;
+        margin-left: auto;
+    }
+    
+    .btn-whatsapp {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn-whatsapp i {
+        font-size: 0.9rem;
+    }
+
     .nav {
         display: none;
     }
 
     .mobile-menu-toggle {
         display: flex;
+        order: 2;
+        margin-left: 0.5rem;
     }
 
     .hero-title {
@@ -1186,6 +1223,28 @@ header .nav .nav-list li a:hover {
     .container {
         padding: 0 1rem;
     }
+    
+    .header-content {
+        padding: 0.8rem 0;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+    
+    .btn-whatsapp {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .mobile-menu-toggle {
+        padding: 0.3rem;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 20px;
+        height: 2px;
+    }
 
     .hero-title {
         font-size: 2rem;
@@ -1202,6 +1261,48 @@ header .nav .nav-list li a:hover {
     .service-card,
     .contact-card {
         padding: 1.5rem;
+    }
+    
+    /* Carrossel mobile muito pequeno */
+    .hero-carousel {
+        min-height: 50vh;
+    }
+    
+    .slide-destination-info {
+        top: 12%;
+        padding: 0.6rem 0.8rem;
+        max-width: 90%;
+    }
+    
+    .destination-title {
+        font-size: 1.2rem;
+    }
+    
+    .destination-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    /* Selos ainda maiores no mobile pequeno */
+    .badge-item {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+    
+    .badge-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .badge-icon i {
+        font-size: 2rem;
+    }
+    
+    .badge-content h5 {
+        font-size: 1.1rem;
+    }
+    
+    .badge-content p {
+        font-size: 0.9rem;
     }
 
     .contact-cta {
@@ -1512,17 +1613,49 @@ header .nav .nav-list li a:hover {
 /* Mobile styles */
 @media (max-width: 768px) {
     .slide-destination-info {
-        top: 20%;
-        padding: 1rem 1.5rem;
-        max-width: 90%;
+        top: 15%;
+        padding: 0.8rem 1rem;
+        max-width: 85%;
+        left: 50%;
+        transform: translateX(-50%);
     }
-
+    
     .destination-title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
+        line-height: 1.2;
     }
-
+    
     .destination-subtitle {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    
+    /* Ajustar altura do carrossel no mobile */
+    .hero-carousel {
+        min-height: 60vh;
+    }
+    
+    /* Melhorar navegação do carrossel */
+    .carousel-nav {
+        bottom: 20px;
+    }
+    
+    .carousel-prev,
+    .carousel-next {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    /* Indicadores menores */
+    .carousel-indicators {
+        bottom: 10px;
+        gap: 0.5rem;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
     }
 }
 
@@ -1684,41 +1817,56 @@ header .nav .nav-list li a:hover {
     .footer-badges {
         padding: 2rem 0;
     }
-
+    
     .badges-container {
         padding: 0 1rem;
     }
-
+    
     .badges-container h4 {
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
     }
-
+    
     .badges-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-
+    
     .badge-item {
-        padding: 1.5rem;
-        gap: 1rem;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        border-radius: 20px;
     }
-
+    
     .badge-icon {
-        width: 60px;
-        height: 60px;
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
     }
-
+    
     .badge-icon i {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
-
+    
+    .badge-logo {
+        border-radius: 12px;
+    }
+    
     .badge-content h5 {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
     }
-
+    
     .badge-content p {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+    }
+    
+    .badge-number,
+    .badge-status {
+        font-size: 1rem;
+        font-weight: 600;
     }
 }
 
@@ -1855,21 +2003,21 @@ header .nav .nav-list li a:hover {
     .search-tabs {
         flex-direction: column;
     }
-    
+
     .search-tab {
         padding: 1rem;
         font-size: 0.9rem;
     }
-    
+
     .search-panel {
         padding: 1.5rem 1rem;
     }
-    
+
     .form-row {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .search-btn {
         padding: 0.875rem 1.5rem;
         font-size: 1rem;
