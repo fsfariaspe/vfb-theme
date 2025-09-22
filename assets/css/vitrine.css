@@ -710,7 +710,7 @@ header .nav .nav-list li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 80px;
+    justify-content: center;
 }
 
 .about-text .section-header {
@@ -788,21 +788,19 @@ header .nav .nav-list li a:hover {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-xl);
-    max-width: 280px;
+    max-width: 250px;
     margin: 0 auto;
 }
 
 .image-container img {
     width: 100%;
-    height: 320px;
+    height: 280px;
     object-fit: cover;
 }
 
 .image-info {
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin-top: 2rem;
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(249, 115, 22, 0.95) 100%);
     color: white;
     padding: 1.5rem;
