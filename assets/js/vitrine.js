@@ -558,30 +558,105 @@ document.addEventListener('DOMContentLoaded', trackInteractions);
 /**
  * Inicializa funcionalidades específicas da landing page
  */
-function initializeLandingPageFeatures() {
-    initializeParallaxHero();
-    initializeCounterAnimation();
-    initializeSmoothScrollToSection();
-    initializeContactFormHandling();
-}
+        function initializeLandingPageFeatures() {
+            initializeCarousel();
+            initializeCounterAnimation();
+            initializeSmoothScrollToSection();
+            initializeContactFormHandling();
+        }
 
 /**
- * Inicializa efeito parallax no hero
+ * Inicializa o carrossel do hero
  */
-function initializeParallaxHero() {
-    const heroSection = document.querySelector('.hero-section');
-    const heroBackground = document.querySelector('.hero-background');
+function initializeCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
     
-    if (heroSection && heroBackground) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallaxSpeed = 0.5;
-            
-            if (scrolled < heroSection.offsetHeight) {
-                heroBackground.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-            }
-        });
+    let currentSlide = 0;
+    let autoPlayInterval;
+    
+    if (slides.length === 0) return;
+    
+    // Função para mostrar slide específico
+    function showSlide(index) {
+        // Remover classe active de todos os slides e indicadores
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // Adicionar classe active ao slide e indicador atuais
+        slides[index].classList.add('active');
+        indicators[index].classList.add('active');
+        
+        currentSlide = index;
     }
+    
+    // Função para próximo slide
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    // Função para slide anterior
+    function prevSlide() {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+    }
+    
+    // Event listeners para navegação
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+    }
+    
+    // Event listeners para indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            showSlide(index);
+            resetAutoPlay();
+        });
+    });
+    
+    // Auto play
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 5000); // 5 segundos
+    }
+    
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+    
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+    
+    // Pausar auto play ao passar o mouse
+    const carousel = document.querySelector('.carousel-container');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+    }
+    
+    // Navegação por teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            resetAutoPlay();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            resetAutoPlay();
+        }
+    });
+    
+    // Iniciar auto play
+    startAutoPlay();
+    
+    console.log('🎠 Carrossel inicializado com sucesso!');
 }
 
 /**
