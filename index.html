@@ -1,340 +1,607 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viaje Fácil Brasil - Sua Agência de Viagens de Confiança</title>
-  <meta name="description"
-    content="Viaje Fácil Brasil - Agência de viagens especializada em pacotes personalizados, passagens aéreas, hospedagem e trabalhos no Japão. Realize seu sonho de viajar!">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/images/logos/favicon.ico">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Motor de busca Oner -->
-  <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/vitrine.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaje Fácil Brasil - Sua Agência de Viagens de Confiança</title>
+    <meta name="description" content="Viaje Fácil Brasil - Agência de viagens especializada em pacotes personalizados, passagens aéreas, hospedagem e trabalhos no Japão. Realize seu sonho de viajar!">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/logos/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Motor de busca Oner -->
+    <link rel="stylesheet" href="https://static.onertravel.com/widget/search/production/styles.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/vitrine.css">
 </head>
-
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <div class="logo">
-          <img src="assets/images/logos/logo-principal.png" alt="Viaje Fácil Brasil">
-        </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#busca">Buscar Viagens</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#destinos">Destinos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </nav>
-        <div class="header-cta">
-          <a href="https://wa.me/5581992429403" class="btn-whatsapp" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            WhatsApp
-          </a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">Realize seu sonho de viajar</h1>
-      <p class="hero-subtitle">Pacotes personalizados, passagens aéreas, hospedagem e muito mais</p>
-      <div class="hero-buttons">
-        <a href="#busca" class="btn btn-primary">Buscar Viagens</a>
-        <a href="https://wa.me/5581992429403" class="btn btn-secondary" target="_blank">Falar no WhatsApp</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="assets/images/backgrounds/montanhas.jpg" alt="Viagem dos sonhos">
-    </div>
-  </section>
-
-  <!-- Motor de Busca Oner -->
-  <section id="busca" class="search-section">
-    <div class="container">
-      <div class="search-header">
-        <h2 class="section-title">Encontre sua próxima viagem</h2>
-        <p class="search-subtitle">Use nosso motor de busca para encontrar as melhores ofertas em passagens aéreas,
-          hotéis e pacotes</p>
-      </div>
-
-      <div class="search-tabs">
-        <button class="search-tab active" data-tab="flights">
-          <i class="fas fa-plane"></i>
-          Passagens Aéreas
-        </button>
-        <button class="search-tab" data-tab="hotels">
-          <i class="fas fa-hotel"></i>
-          Hotéis
-        </button>
-        <button class="search-tab" data-tab="packages">
-          <i class="fas fa-suitcase"></i>
-          Pacotes
-        </button>
-      </div>
-
-      <div class="search-content">
-        <!-- Motor de busca de passagens -->
-        <div class="search-panel active" id="flights-panel">
-          <div class="oner-search-widget" data-type="flights">
-            <!-- O widget da Oner será carregado aqui -->
-          </div>
-        </div>
-
-        <!-- Motor de busca de hotéis -->
-        <div class="search-panel" id="hotels-panel">
-          <div class="oner-search-widget" data-type="hotels">
-            <!-- O widget da Oner será carregado aqui -->
-          </div>
-        </div>
-
-        <!-- Motor de busca de pacotes -->
-        <div class="search-panel" id="packages-panel">
-          <div class="oner-search-widget" data-type="packages">
-            <!-- O widget da Oner será carregado aqui -->
-          </div>
-        </div>
-      </div>
-
-      <div class="search-features">
-        <div class="feature-item">
-          <i class="fas fa-shield-alt"></i>
-          <span>Busca Segura</span>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-clock"></i>
-          <span>Resultados Rápidos</span>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-tag"></i>
-          <span>Melhores Preços</span>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-headset"></i>
-          <span>Suporte 24/7</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços -->
-  <section id="servicos" class="services">
-    <div class="container">
-      <h2 class="section-title">Nossos Serviços</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">✈️</div>
-          <h3>Passagens Aéreas</h3>
-          <p>Melhores preços e conexões para qualquer destino nacional e internacional</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🏨</div>
-          <h3>Hospedagem</h3>
-          <p>Hotéis, pousadas e resorts selecionados para sua comodidade</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📦</div>
-          <h3>Pacotes Completos</h3>
-          <p>Viagens organizadas com voo, hospedagem e passeios inclusos</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛡️</div>
-          <h3>Seguros de Viagem</h3>
-          <p>Proteção completa para sua tranquilidade durante a viagem</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💼</div>
-          <h3>Trabalhos no Japão</h3>
-          <p>Oportunidades de trabalho e intercâmbio cultural no Japão</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎯</div>
-          <h3>Consultoria Personalizada</h3>
-          <p>Planejamento individualizado para suas necessidades específicas</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Destinos -->
-  <section id="destinos" class="destinations">
-    <div class="container">
-      <h2 class="section-title">Destinos em Destaque</h2>
-      <div class="destinations-grid">
-        <div class="destination-card">
-          <img src="assets/images/destinations/fernando-noronha.jpg" alt="Fernando de Noronha">
-          <div class="destination-info">
-            <h3>Fernando de Noronha</h3>
-            <p>Paraíso brasileiro com praias paradisíacas</p>
-          </div>
-        </div>
-        <div class="destination-card">
-          <img src="assets/images/destinations/kyoto-japao.jpg" alt="Kyoto, Japão">
-          <div class="destination-info">
-            <h3>Kyoto, Japão</h3>
-            <p>Tradição e modernidade em harmonia</p>
-          </div>
-        </div>
-        <div class="destination-card">
-          <img src="assets/images/destinations/alberta-canada.jpg" alt="Alberta, Canadá">
-          <div class="destination-info">
-            <h3>Alberta, Canadá</h3>
-            <p>Montanhas majestosas e lagos cristalinos</p>
-          </div>
-        </div>
-        <div class="destination-card">
-          <img src="assets/images/destinations/chapada-diamantina.jpg" alt="Chapada Diamantina">
-          <div class="destination-info">
-            <h3>Chapada Diamantina</h3>
-            <p>Cachoeiras cristalinas na Bahia</p>
-          </div>
-        </div>
-        <div class="destination-card">
-          <img src="assets/images/destinations/egito.jpg" alt="Egito">
-          <div class="destination-info">
-            <h3>Egito</h3>
-            <p>Mistérios milenares e histórias antigas</p>
-          </div>
-        </div>
-        <div class="destination-card">
-          <img src="assets/images/destinations/santiago-chile.jpg" alt="Santiago, Chile">
-          <div class="destination-info">
-            <h3>Santiago, Chile</h3>
-            <p>Entre os Andes e o Pacífico</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre -->
-  <section id="sobre" class="about">
-    <div class="container">
-      <div class="about-content">
-        <div class="about-text">
-          <h2>Sobre a Viaje Fácil Brasil</h2>
-          <p>Fundada em 2018 por Flávio Soares de Farias, nossa agência nasceu com o sonho de tornar as viagens mais
-            acessíveis e memoráveis para todos os brasileiros.</p>
-          <p>Ao longo dos anos, construímos uma rede sólida de parceiros e fornecedores, sempre priorizando a qualidade
-            e a satisfação de nossos clientes.</p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-number">5+</span>
-              <span class="stat-label">Anos de experiência</span>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logos/logo-principal.png" alt="Viaje Fácil Brasil">
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#busca">Buscar Viagens</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="header-cta">
+                    <a href="https://wa.me/5581992429403" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <div class="stat">
-              <span class="stat-number">1000+</span>
-              <span class="stat-label">Clientes satisfeitos</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">Destinos</span>
-            </div>
-          </div>
         </div>
-        <div class="about-image">
-          <img src="assets/images/profiles/flavio-profissional.jpeg" alt="Flávio Soares de Farias">
-          <div class="about-image-info">
-            <h4>Flávio Soares de Farias</h4>
-            <p>Fundador e Diretor</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Contato -->
-  <section id="contato" class="contact">
-    <div class="container">
-      <h2 class="section-title">Entre em Contato</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <div>
-              <h4>Telefone</h4>
-              <p>(81) 99242-9403</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h4>E-mail</h4>
-              <p>atendimento@viajefacilbrasil.com.br</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Endereço</h4>
-              <p>Rua das Flores, 123 - Boa Viagem<br>Recife/PE - CEP: 51030-000</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fab fa-whatsapp"></i>
-            <div>
-              <h4>WhatsApp</h4>
-              <p>Fale conosco agora mesmo!</p>
-            </div>
-          </div>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background">
+            <img src="assets/images/backgrounds/montanhas.jpg" alt="Viagem dos sonhos">
         </div>
-        <div class="contact-cta">
-          <h3>Pronto para sua próxima aventura?</h3>
-          <p>Entre em contato conosco e vamos planejar a viagem dos seus sonhos!</p>
-          <a href="https://wa.me/5581992429403" class="btn btn-primary btn-large" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            Falar no WhatsApp
-          </a>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Realize seu sonho de viajar</h1>
+                    <p class="hero-subtitle">A Viaje Fácil Brasil transforma seus sonhos em realidade com pacotes personalizados, passagens aéreas e experiências únicas ao redor do mundo.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Anos de Experiência</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Destinos</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#busca" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Buscar Viagens
+                        </a>
+                        <a href="https://wa.me/5581992429403" class="btn btn-secondary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Falar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="assets/images/logos/logo-footer.png" alt="Viaje Fácil Brasil">
+    <!-- MOTOR DE BUSCA SECTION -->
+    <section id="busca" class="search-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Encontre sua próxima aventura</h2>
+                <p class="section-subtitle">Use nosso motor de busca inteligente para encontrar as melhores ofertas em passagens aéreas, hotéis e pacotes completos</p>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-tabs">
+                    <button class="search-tab active" data-tab="flights">
+                        <div class="tab-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="tab-content">
+                            <h3>Passagens Aéreas</h3>
+                            <p>Melhores preços e conexões</p>
+                        </div>
+                    </button>
+                    <button class="search-tab" data-tab="hotels">
+                        <div class="tab-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="tab-content">
+                            <h3>Hotéis</h3>
+                            <p>Hospedagem selecionada</p>
+                        </div>
+                    </button>
+                    <button class="search-tab" data-tab="packages">
+                        <div class="tab-icon">
+                            <i class="fas fa-suitcase-rolling"></i>
+                        </div>
+                        <div class="tab-content">
+                            <h3>Pacotes</h3>
+                            <p>Viagens completas</p>
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="search-content">
+                    <div class="search-panel active" id="flights-panel">
+                        <div class="oner-search-widget" data-type="flights"></div>
+                    </div>
+                    <div class="search-panel" id="hotels-panel">
+                        <div class="oner-search-widget" data-type="hotels"></div>
+                    </div>
+                    <div class="search-panel" id="packages-panel">
+                        <div class="oner-search-widget" data-type="packages"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-info">
-          <p>&copy; 2024 Viaje Fácil Brasil. Todos os direitos reservados.</p>
-          <p>CNPJ: 12.345.678/0001-90 | CADASTUR: 12.345.678.90</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Scripts -->
-  <script src="https://static.onertravel.com/widget/search/production/script.js"></script>
-  <script src="assets/js/vitrine.js"></script>
+    <!-- SERVIÇOS SECTION -->
+    <section id="servicos" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Serviços Especializados</h2>
+                <p class="section-subtitle">Oferecemos uma gama completa de serviços para tornar sua viagem perfeita</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Serviço 1: Passagens Aéreas -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Passagens Aéreas</h3>
+                        <p>Encontre as melhores ofertas em passagens nacionais e internacionais com nossas parcerias exclusivas.</p>
+                        <ul class="service-features">
+                            <li>Preços competitivos</li>
+                            <li>Múltiplas companhias</li>
+                            <li>Suporte 24/7</li>
+                        </ul>
+                        <a href="#busca" class="service-btn">Buscar Passagens</a>
+                    </div>
+                </div>
+
+                <!-- Serviço 2: Hospedagem -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Hospedagem</h3>
+                        <p>Hotéis, pousadas e resorts cuidadosamente selecionados para sua comodidade e conforto.</p>
+                        <ul class="service-features">
+                            <li>Hotéis selecionados</li>
+                            <li>Melhor localização</li>
+                            <li>Preços especiais</li>
+                        </ul>
+                        <a href="#busca" class="service-btn">Buscar Hotéis</a>
+                    </div>
+                </div>
+
+                <!-- Serviço 3: Pacotes Completos -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-suitcase-rolling"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pacotes Completos</h3>
+                        <p>Viagens organizadas com voo, hospedagem, traslados e passeios inclusos para sua tranquilidade.</p>
+                        <ul class="service-features">
+                            <li>Tudo incluso</li>
+                            <li>Sem preocupações</li>
+                            <li>Melhor custo-benefício</li>
+                        </ul>
+                        <a href="#busca" class="service-btn">Ver Pacotes</a>
+                    </div>
+                </div>
+
+                <!-- Serviço 4: Seguros de Viagem -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Seguros de Viagem</h3>
+                        <p>Proteção completa para sua tranquilidade durante toda a viagem, cobrindo imprevistos.</p>
+                        <ul class="service-features">
+                            <li>Cobertura completa</li>
+                            <li>Assistência 24h</li>
+                            <li>Preços acessíveis</li>
+                        </ul>
+                        <a href="#contato" class="service-btn">Solicitar Seguro</a>
+                    </div>
+                </div>
+
+                <!-- Serviço 5: Trabalhos no Japão -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Trabalhos no Japão</h3>
+                        <p>Oportunidades de trabalho e intercâmbio cultural no Japão com suporte completo.</p>
+                        <ul class="service-features">
+                            <li>Oportunidades reais</li>
+                            <li>Suporte completo</li>
+                            <li>Experiência cultural</li>
+                        </ul>
+                        <a href="#contato" class="service-btn">Saber Mais</a>
+                    </div>
+                </div>
+
+                <!-- Serviço 6: Consultoria Personalizada -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Consultoria Personalizada</h3>
+                        <p>Planejamento individualizado para atender suas necessidades específicas e orçamento.</p>
+                        <ul class="service-features">
+                            <li>Planejamento personalizado</li>
+                            <li>Atendimento dedicado</li>
+                            <li>Orçamento flexível</li>
+                        </ul>
+                        <a href="#contato" class="service-btn">Agendar Consultoria</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINOS SECTION -->
+    <section id="destinos" class="destinations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Destinos em Destaque</h2>
+                <p class="section-subtitle">Explore os destinos mais procurados pelos nossos clientes</p>
+            </div>
+            
+            <div class="destinations-grid">
+                <!-- Destino 1: Fernando de Noronha -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="assets/images/destinations/fernando-noronha.jpg" alt="Fernando de Noronha">
+                        <div class="destination-overlay">
+                            <a href="#contato" class="destination-btn">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Fernando de Noronha</h3>
+                        <p class="destination-description">Paraíso brasileiro com praias paradisíacas e vida marinha única no mundo.</p>
+                        <div class="destination-info">
+                            <span class="destination-type">Nacional</span>
+                            <span class="destination-duration">4-7 dias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destino 2: Kyoto, Japão -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="assets/images/destinations/kyoto-japao.jpg" alt="Kyoto, Japão">
+                        <div class="destination-overlay">
+                            <a href="#contato" class="destination-btn">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Kyoto, Japão</h3>
+                        <p class="destination-description">Tradição e modernidade se encontram em harmonia perfeita.</p>
+                        <div class="destination-info">
+                            <span class="destination-type">Internacional</span>
+                            <span class="destination-duration">7-10 dias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destino 3: Alberta, Canadá -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="assets/images/destinations/alberta-canada.jpg" alt="Alberta, Canadá">
+                        <div class="destination-overlay">
+                            <a href="#contato" class="destination-btn">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Alberta, Canadá</h3>
+                        <p class="destination-description">Montanhas majestosas e lagos de águas cristalinas.</p>
+                        <div class="destination-info">
+                            <span class="destination-type">Internacional</span>
+                            <span class="destination-duration">10-15 dias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destino 4: Chapada Diamantina -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="assets/images/destinations/chapada-diamantina.jpg" alt="Chapada Diamantina">
+                        <div class="destination-overlay">
+                            <a href="#contato" class="destination-btn">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Chapada Diamantina</h3>
+                        <p class="destination-description">Cachoeiras cristalinas e paisagens deslumbrantes na Bahia.</p>
+                        <div class="destination-info">
+                            <span class="destination-type">Nacional</span>
+                            <span class="destination-duration">5-8 dias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destino 5: Egito -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="assets/images/destinations/egito.jpg" alt="Egito">
+                        <div class="destination-overlay">
+                            <a href="#contato" class="destination-btn">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Egito</h3>
+                        <p class="destination-description">Mistérios milenares e histórias que atravessam o tempo.</p>
+                        <div class="destination-info">
+                            <span class="destination-type">Internacional</span>
+                            <span class="destination-duration">8-12 dias</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destino 6: Santiago, Chile -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="assets/images/destinations/santiago-chile.jpg" alt="Santiago, Chile">
+                        <div class="destination-overlay">
+                            <a href="#contato" class="destination-btn">Solicitar Orçamento</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Santiago, Chile</h3>
+                        <p class="destination-description">Entre os Andes e o Pacífico, uma cidade de contrastes únicos.</p>
+                        <div class="destination-info">
+                            <span class="destination-type">Internacional</span>
+                            <span class="destination-duration">5-7 dias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE SECTION -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2 class="section-title">Sobre a Viaje Fácil Brasil</h2>
+                        <p class="section-subtitle">Nossa história de paixão por viagens e dedicação aos nossos clientes</p>
+                    </div>
+                    
+                    <div class="about-story">
+                        <p>Fundada em 2018 por <strong>Flávio Soares de Farias</strong>, nossa agência nasceu com um sonho simples: tornar as viagens mais acessíveis e memoráveis para todos os brasileiros.</p>
+                        
+                        <p>Ao longo dos anos, construímos uma rede sólida de parceiros e fornecedores, sempre priorizando a qualidade e a satisfação de nossos clientes. Cada viagem planejada é uma oportunidade de criar memórias que durarão para sempre.</p>
+                        
+                        <p>Hoje, continuamos crescendo e evoluindo, sempre mantendo nosso compromisso com a excelência no atendimento e a paixão por conectar pessoas a destinos incríveis ao redor do mundo.</p>
+                    </div>
+
+                    <div class="about-mission">
+                        <h3>Nossa Missão</h3>
+                        <p>Facilitar e tornar acessível a realização dos sonhos de viagem de nossos clientes, oferecendo serviços personalizados, preços competitivos e um atendimento excepcional que transforma cada jornada em uma experiência única e inesquecível.</p>
+                    </div>
+
+                    <div class="about-values">
+                        <h3>Nossos Valores</h3>
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <i class="fas fa-heart"></i>
+                                <h4>Paixão</h4>
+                                <p>Amamos o que fazemos e isso reflete em cada atendimento</p>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-handshake"></i>
+                                <h4>Confiança</h4>
+                                <p>Construímos relacionamentos duradouros baseados na confiança</p>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-star"></i>
+                                <h4>Excelência</h4>
+                                <p>Buscamos sempre a melhor experiência para nossos clientes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="assets/images/profiles/flavio-profissional.jpeg" alt="Flávio Soares de Farias">
+                        <div class="image-info">
+                            <h4>Flávio Soares de Farias</h4>
+                            <p>Fundador e Diretor</p>
+                            <div class="social-links">
+                                <a href="https://wa.me/5581992429403" target="_blank">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="mailto:atendimento@viajefacilbrasil.com.br">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO SECTION -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="section-subtitle">Pronto para sua próxima aventura? Fale conosco e vamos planejar a viagem dos seus sonhos!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefone</h3>
+                            <p>(81) 99242-9403</p>
+                            <a href="tel:+5581992429403" class="contact-link">Ligar agora</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p>Fale conosco agora mesmo!</p>
+                            <a href="https://wa.me/5581992429403" class="contact-link" target="_blank">Abrir WhatsApp</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-mail</h3>
+                            <p>atendimento@viajefacilbrasil.com.br</p>
+                            <a href="mailto:atendimento@viajefacilbrasil.com.br" class="contact-link">Enviar e-mail</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Endereço</h3>
+                            <p>Rua das Flores, 123 - Boa Viagem<br>Recife/PE - CEP: 51030-000</p>
+                            <a href="https://maps.google.com" class="contact-link" target="_blank">Ver no mapa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cta">
+                    <div class="cta-content">
+                        <h3>Vamos conversar sobre sua viagem?</h3>
+                        <p>Nossa equipe está pronta para ajudar você a planejar a viagem perfeita. Entre em contato conosco e descubra como podemos tornar seus sonhos de viagem realidade.</p>
+                        
+                        <div class="cta-buttons">
+                            <a href="https://wa.me/5581992429403" class="btn btn-primary btn-large" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                Falar no WhatsApp
+                            </a>
+                            <a href="tel:+5581992429403" class="btn btn-secondary btn-large">
+                                <i class="fas fa-phone"></i>
+                                Ligar Agora
+                            </a>
+                        </div>
+
+                        <div class="contact-features">
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <span>Atendimento 24/7</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Segurança garantida</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-star"></i>
+                                <span>Atendimento personalizado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logos/logo-footer.png" alt="Viaje Fácil Brasil">
+                    </div>
+                    <p class="footer-description">Transformando sonhos em viagens inesquecíveis desde 2018.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/5581992429403" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:atendimento@viajefacilbrasil.com.br">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#busca">Passagens Aéreas</a></li>
+                        <li><a href="#busca">Hotéis</a></li>
+                        <li><a href="#busca">Pacotes Completos</a></li>
+                        <li><a href="#servicos">Seguros de Viagem</a></li>
+                        <li><a href="#servicos">Trabalhos no Japão</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#contato">Suporte</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> (81) 99242-9403</p>
+                        <p><i class="fas fa-envelope"></i> atendimento@viajefacilbrasil.com.br</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Recife/PE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2024 Viaje Fácil Brasil. Todos os direitos reservados.</p>
+                    <p>CNPJ: 12.345.678/0001-90 | CADASTUR: 12.345.678.90</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://static.onertravel.com/widget/search/production/script.js"></script>
+    <script src="assets/js/vitrine.js"></script>
 </body>
-
 </html>

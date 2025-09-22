@@ -276,13 +276,13 @@ function initializeAnimations() {
  * Anima elementos quando entram na viewport
  */
 function animateOnScroll() {
-  const elements = document.querySelectorAll('.service-card, .destination-card, .contact-item, .about-text, .about-image, .search-panel');
-
-  elements.forEach(element => {
-    if (isElementInViewport(element)) {
-      element.classList.add('animate-in');
-    }
-  });
+    const elements = document.querySelectorAll('.service-card, .destination-card, .contact-card, .about-text, .about-image, .search-panel, .value-item, .stat-item');
+    
+    elements.forEach(element => {
+        if (isElementInViewport(element)) {
+            element.classList.add('animate-in');
+        }
+    });
 }
 
 /**
@@ -551,4 +551,203 @@ function trackInteractions() {
 // Inicializar tracking
 document.addEventListener('DOMContentLoaded', trackInteractions);
 
-console.log('✅ Vitrine JavaScript carregado com sucesso!');
+// ========================================
+// FUNCIONALIDADES ESPECÍFICAS DA LANDING PAGE
+// ========================================
+
+/**
+ * Inicializa funcionalidades específicas da landing page
+ */
+function initializeLandingPageFeatures() {
+    initializeParallaxHero();
+    initializeCounterAnimation();
+    initializeSmoothScrollToSection();
+    initializeContactFormHandling();
+}
+
+/**
+ * Inicializa efeito parallax no hero
+ */
+function initializeParallaxHero() {
+    const heroSection = document.querySelector('.hero-section');
+    const heroBackground = document.querySelector('.hero-background');
+    
+    if (heroSection && heroBackground) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxSpeed = 0.5;
+            
+            if (scrolled < heroSection.offsetHeight) {
+                heroBackground.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+            }
+        });
+    }
+}
+
+/**
+ * Inicializa animação de contadores
+ */
+function initializeCounterAnimation() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.textContent.replace(/\D/g, ''));
+        const duration = 2000; // 2 segundos
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            const suffix = counter.textContent.includes('+') ? '+' : '';
+            counter.textContent = Math.floor(current) + suffix;
+        }, 16);
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+    
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}
+
+/**
+ * Inicializa scroll suave para seções
+ */
+function initializeSmoothScrollToSection() {
+    const buttons = document.querySelectorAll('[href^="#"]');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+/**
+ * Inicializa tratamento de formulários de contato
+ */
+function initializeContactFormHandling() {
+    // Adicionar funcionalidade aos botões de contato
+    const contactButtons = document.querySelectorAll('.contact-link, .service-btn, .destination-btn');
+    
+    contactButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Se for um link interno, não fazer nada
+            if (this.getAttribute('href')?.startsWith('#')) {
+                return;
+            }
+            
+            // Para links externos, adicionar tracking
+            const buttonText = this.textContent.trim();
+            console.log(`📞 Clique em: ${buttonText}`);
+            
+            // Aqui você pode adicionar código de analytics
+            // gtag('event', 'click', {
+            //     'event_category': 'contact',
+            //     'event_label': buttonText
+            // });
+        });
+    });
+}
+
+/**
+ * Inicializa lazy loading para imagens
+ */
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+/**
+ * Inicializa funcionalidades de acessibilidade
+ */
+function initializeAccessibility() {
+    // Adicionar suporte a navegação por teclado
+    const focusableElements = document.querySelectorAll('button, a, input, textarea, select');
+    
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.style.outline = '2px solid var(--primary-color)';
+            this.style.outlineOffset = '2px';
+        });
+        
+        element.addEventListener('blur', function() {
+            this.style.outline = 'none';
+        });
+    });
+    
+    // Adicionar skip links para acessibilidade
+    const skipLink = document.createElement('a');
+    skipLink.href = '#hero';
+    skipLink.textContent = 'Pular para conteúdo principal';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        z-index: 10000;
+        transition: top 0.3s;
+    `;
+    
+    skipLink.addEventListener('focus', function() {
+        this.style.top = '6px';
+    });
+    
+    skipLink.addEventListener('blur', function() {
+        this.style.top = '-40px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+}
+
+// Inicializar funcionalidades da landing page
+document.addEventListener('DOMContentLoaded', function() {
+    initializeLandingPageFeatures();
+    initializeLazyLoading();
+    initializeAccessibility();
+});
+
+console.log('✅ Landing Page JavaScript carregado com sucesso!');
