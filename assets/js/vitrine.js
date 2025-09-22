@@ -144,12 +144,16 @@ function updateActiveSection() {
  * Inicializa o widget da Oner
  */
 function initializeOnerWidget() {
+  console.log('🔍 Tentando inicializar widget Oner...');
+  
   // Verificar se o script da Oner foi carregado
   if (typeof window.OnerTravel !== 'undefined') {
+    console.log('✅ Script Oner carregado, inicializando widget...');
     loadOnerWidget();
   } else {
+    console.log('⏳ Script Oner ainda não carregado, aguardando...');
     // Aguardar o script carregar
-    setTimeout(initializeOnerWidget, 500);
+    setTimeout(initializeOnerWidget, 1000);
   }
 }
 
@@ -157,10 +161,16 @@ function initializeOnerWidget() {
  * Carrega o widget da Oner integrado
  */
 function loadOnerWidget() {
+  console.log('🔍 Procurando container do widget...');
   const widgetContainer = document.querySelector('.oner-search-widget');
+  
+  console.log('Container encontrado:', widgetContainer);
+  console.log('OnerTravel disponível:', typeof window.OnerTravel !== 'undefined');
 
   if (widgetContainer && window.OnerTravel) {
     try {
+      console.log('🚀 Inicializando widget Oner...');
+      
       // Limpar container
       widgetContainer.innerHTML = '';
 
@@ -172,6 +182,8 @@ function loadOnerWidget() {
         language: 'pt-BR',
         currency: 'BRL'
       };
+
+      console.log('Configuração do widget:', widgetConfig);
 
       // Inicializar widget
       window.OnerTravel.init(widgetConfig);
@@ -194,6 +206,16 @@ function loadOnerWidget() {
                 </div>
             `;
     }
+  } else {
+    console.error('❌ Container não encontrado ou OnerTravel não disponível');
+    console.log('Container:', widgetContainer);
+    console.log('OnerTravel:', window.OnerTravel);
+    
+    // Tentar novamente em 2 segundos
+    setTimeout(() => {
+      console.log('🔄 Tentando novamente...');
+      loadOnerWidget();
+    }, 2000);
   }
 }
 

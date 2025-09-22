@@ -1668,6 +1668,12 @@ header .nav .nav-list li a:hover {
     color: #34d399;
 }
 
+/* Animação do spinner de loading */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Responsive para badges */
 @media (max-width: 768px) {
     .footer-badges {
