@@ -1768,14 +1768,14 @@ header .nav .nav-list li a:hover {
 .badge-logo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
 }
 
-/* Zoom específico para logo CADASTUR - dentro da máscara */
+/* Zoom específico para logo CADASTUR - tamanho máximo sem cortar */
 .badge-item:has(.badge-logo[alt*="CADASTUR"]) .badge-logo {
-    object-fit: cover;
-    transform: scale(1.3);
+    object-fit: contain;
+    transform: scale(1.15);
     transform-origin: center;
 }
 
