@@ -98,14 +98,14 @@ body {
 }
 
 .nav-link {
-    text-decoration: none;
-    color: #000000;
-    font-weight: 600;
-    font-size: 1rem;
+    text-decoration: none !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
     transition: var(--transition);
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    background: transparent;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 12px !important;
+    background: transparent !important;
     position: relative;
     overflow: hidden;
 }
@@ -128,16 +128,45 @@ body {
 }
 
 .nav-link:hover {
-    color: #000000;
+    color: #000000 !important;
+    text-decoration: none !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-link.active {
-    color: #000000;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.12) 100%);
-    font-weight: 700;
+    color: #000000 !important;
+    text-decoration: none !important;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.12) 100%) !important;
+    font-weight: 700 !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Forçar remoção de sublinhados de todos os links do menu */
+.nav-list a,
+.nav-list a:visited,
+.nav-list a:hover,
+.nav-list a:active,
+.nav-list a:focus {
+    text-decoration: none !important;
+    color: #000000 !important;
+}
+
+/* Regra adicional para garantir que as mudanças sejam aplicadas */
+header .nav .nav-list li a {
+    text-decoration: none !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+    border-bottom: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-decoration-color: transparent !important;
+}
+
+header .nav .nav-list li a:hover {
+    text-decoration: none !important;
+    color: #000000 !important;
+    border-bottom: none !important;
 }
 
 .btn-whatsapp {
