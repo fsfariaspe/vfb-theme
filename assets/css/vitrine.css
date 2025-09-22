@@ -1878,13 +1878,132 @@ header .nav .nav-list li a:hover {
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow: visible;
     padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Remover bordas do widget Oner */
+#wrapper * {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remover bordas específicas dos elementos */
+#wrapper input,
+#wrapper select,
+#wrapper button,
+#wrapper .search-field,
+#wrapper .form-control,
+#wrapper .btn,
+#wrapper .input-group,
+#wrapper .dropdown,
+#wrapper .tab,
+#wrapper .tab-content,
+#wrapper .container,
+#wrapper .row,
+#wrapper .col {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Estilizar inputs com visual mais limpo */
+#wrapper input[type="text"],
+#wrapper input[type="date"],
+#wrapper select {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+#wrapper input[type="text"]:focus,
+#wrapper input[type="date"]:focus,
+#wrapper select:focus {
+    background: white !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Estilizar botões */
+#wrapper button,
+#wrapper .btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+#wrapper button:hover,
+#wrapper .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Remover bordas das abas */
+#wrapper .nav-tabs,
+#wrapper .tab-nav,
+#wrapper .tabs {
+    border-bottom: none !important;
+}
+
+#wrapper .nav-tabs .nav-link,
+#wrapper .tab-nav .tab,
+#wrapper .tabs .tab {
+    border: none !important;
+    background: transparent !important;
+    color: #64748b !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 8px !important;
+    margin-right: 0.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+#wrapper .nav-tabs .nav-link.active,
+#wrapper .nav-tabs .nav-link:hover,
+#wrapper .tab-nav .tab.active,
+#wrapper .tab-nav .tab:hover,
+#wrapper .tabs .tab.active,
+#wrapper .tabs .tab:hover {
+    background: #f1f5f9 !important;
+    color: #3b82f6 !important;
+    border: none !important;
+}
+
+/* Ajustar altura do container para não cortar botões */
+.search-container {
+    min-height: 400px;
+    padding-bottom: 2rem;
 }
 
 /* Responsive para widget Oner */
 @media (max-width: 768px) {
     #wrapper {
         padding: 1.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .search-container {
+        min-height: 350px;
+        padding-bottom: 1rem;
+    }
+    
+    #wrapper input[type="text"],
+    #wrapper input[type="date"],
+    #wrapper select {
+        padding: 0.6rem 0.8rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    #wrapper button,
+    #wrapper .btn {
+        padding: 0.6rem 1.2rem !important;
+        font-size: 0.9rem !important;
     }
 }
