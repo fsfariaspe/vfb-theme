@@ -1673,39 +1673,39 @@ header .nav .nav-list li a:hover {
     .footer-badges {
         padding: 2rem 0;
     }
-    
+
     .badges-container {
         padding: 0 1rem;
     }
-    
+
     .badges-container h4 {
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .badges-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .badge-item {
         padding: 1.5rem;
         gap: 1rem;
     }
-    
+
     .badge-icon {
         width: 60px;
         height: 60px;
     }
-    
+
     .badge-icon i {
         font-size: 1.8rem;
     }
-    
+
     .badge-content h5 {
         font-size: 1.1rem;
     }
-    
+
     .badge-content p {
         font-size: 0.9rem;
     }
