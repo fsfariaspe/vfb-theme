@@ -78,11 +78,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
 }
 
 .logo img {
-    height: 50px;
+    height: 100px;
     width: auto;
     transition: var(--transition);
 }
@@ -938,7 +938,7 @@ body {
 }
 
 .footer-logo img {
-    height: 50px;
+    height: 100px;
     margin-bottom: 1rem;
 }
 
