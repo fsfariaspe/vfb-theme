@@ -271,11 +271,169 @@
 
       <div class="search-container">
         <!-- Widget Oner integrado - sem abas duplicadas -->
-        <div class="oner-search-widget" data-type="travel">
-          <!-- Fallback enquanto carrega -->
-          <div class="search-loading" style="text-align: center; padding: 3rem; color: #666;">
-            <div class="loading-spinner" style="width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
-            <p>Carregando motor de busca...</p>
+        <!-- Motor de busca alternativo -->
+        <div class="search-widget">
+          <div class="search-tabs">
+            <button class="search-tab active" data-tab="flights">
+              <i class="fas fa-plane"></i>
+              Passagens Aéreas
+            </button>
+            <button class="search-tab" data-tab="hotels">
+              <i class="fas fa-bed"></i>
+              Hotéis
+            </button>
+            <button class="search-tab" data-tab="packages">
+              <i class="fas fa-suitcase-rolling"></i>
+              Pacotes Completos
+            </button>
+          </div>
+
+          <div class="search-panels">
+            <!-- Painel Passagens -->
+            <div class="search-panel active" id="flights-panel">
+              <form class="search-form" onsubmit="searchFlights(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Origem</label>
+                    <input type="text" placeholder="Cidade de origem" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Destino</label>
+                    <input type="text" placeholder="Para onde você quer ir?" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Data de Ida</label>
+                    <input type="date" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Data de Volta</label>
+                    <input type="date">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Passageiros</label>
+                    <select>
+                      <option value="1">1 Passageiro</option>
+                      <option value="2" selected>2 Passageiros</option>
+                      <option value="3">3 Passageiros</option>
+                      <option value="4">4 Passageiros</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Classe</label>
+                    <select>
+                      <option value="economy">Econômica</option>
+                      <option value="premium">Premium Economy</option>
+                      <option value="business">Executiva</option>
+                      <option value="first">Primeira Classe</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="search-btn">
+                  <i class="fas fa-search"></i>
+                  Buscar Passagens
+                </button>
+              </form>
+            </div>
+
+            <!-- Painel Hotéis -->
+            <div class="search-panel" id="hotels-panel">
+              <form class="search-form" onsubmit="searchHotels(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Destino</label>
+                    <input type="text" placeholder="Cidade ou hotel" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Check-in</label>
+                    <input type="date" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Check-out</label>
+                    <input type="date" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Hóspedes</label>
+                    <select>
+                      <option value="1">1 Hóspede</option>
+                      <option value="2" selected>2 Hóspedes</option>
+                      <option value="3">3 Hóspedes</option>
+                      <option value="4">4 Hóspedes</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Quartos</label>
+                    <select>
+                      <option value="1" selected>1 Quarto</option>
+                      <option value="2">2 Quartos</option>
+                      <option value="3">3 Quartos</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="search-btn">
+                  <i class="fas fa-search"></i>
+                  Buscar Hotéis
+                </button>
+              </form>
+            </div>
+
+            <!-- Painel Pacotes -->
+            <div class="search-panel" id="packages-panel">
+              <form class="search-form" onsubmit="searchPackages(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Origem</label>
+                    <input type="text" placeholder="Cidade de origem" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Destino</label>
+                    <input type="text" placeholder="Para onde você quer ir?" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Data de Ida</label>
+                    <input type="date" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Data de Volta</label>
+                    <input type="date" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Passageiros</label>
+                    <select>
+                      <option value="1">1 Passageiro</option>
+                      <option value="2" selected>2 Passageiros</option>
+                      <option value="3">3 Passageiros</option>
+                      <option value="4">4 Passageiros</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Duração</label>
+                    <select>
+                      <option value="3">3 dias</option>
+                      <option value="5">5 dias</option>
+                      <option value="7" selected>7 dias</option>
+                      <option value="10">10 dias</option>
+                      <option value="14">14 dias</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="search-btn">
+                  <i class="fas fa-search"></i>
+                  Buscar Pacotes
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -850,7 +1008,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://static.onertravel.com/widget/search/production/script.js" onload="console.log('✅ Script Oner carregado')" onerror="console.error('❌ Erro ao carregar script Oner')"></script>
+  <script src="https://static.onertravel.com/widget/search/production/script.js"
+    onload="console.log('✅ Script Oner carregado')" onerror="console.error('❌ Erro ao carregar script Oner')"></script>
   <script src="assets/js/vitrine.js"></script>
 </body>
 

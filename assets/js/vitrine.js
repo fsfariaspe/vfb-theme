@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeAnimations();
   initializeMobileMenu();
   initializeSmoothScroll();
+  initializeSearchTabs();
   initializeOnerWidget();
 
   console.log('🚀 Viaje Fácil Brasil - Vitrine carregada com sucesso!');
@@ -136,7 +137,206 @@ function updateActiveSection() {
 }
 
 // ========================================
-// MOTOR DE BUSCA ONER
+// MOTOR DE BUSCA
+// ========================================
+
+/**
+ * Inicializa as abas do motor de busca
+ */
+function initializeSearchTabs() {
+  const searchTabs = document.querySelectorAll('.search-tab');
+  const searchPanels = document.querySelectorAll('.search-panel');
+
+  searchTabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      const tabType = this.getAttribute('data-tab');
+
+      // Remover classe ativa de todas as abas
+      searchTabs.forEach(t => t.classList.remove('active'));
+
+      // Adicionar classe ativa à aba clicada
+      this.classList.add('active');
+
+      // Esconder todos os painéis
+      searchPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Mostrar o painel correspondente
+      const targetPanel = document.getElementById(`${tabType}-panel`);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+  });
+}
+
+/**
+ * Função para buscar passagens
+ */
+function searchFlights(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  
+  // Coletar dados do formulário
+  const data = {
+    type: 'flights',
+    origin: form.querySelector('input[type="text"]:nth-of-type(1)').value,
+    destination: form.querySelector('input[type="text"]:nth-of-type(2)').value,
+    departureDate: form.querySelector('input[type="date"]:nth-of-type(1)').value,
+    returnDate: form.querySelector('input[type="date"]:nth-of-type(2)').value,
+    passengers: form.querySelector('select').value,
+    class: form.querySelectorAll('select')[1].value
+  };
+
+  console.log('🔍 Buscando passagens:', data);
+  showSearchResult('Passagens Aéreas', data);
+}
+
+/**
+ * Função para buscar hotéis
+ */
+function searchHotels(event) {
+  event.preventDefault();
+  const form = event.target;
+  
+  const data = {
+    type: 'hotels',
+    destination: form.querySelector('input[type="text"]').value,
+    checkIn: form.querySelector('input[type="date"]:nth-of-type(1)').value,
+    checkOut: form.querySelector('input[type="date"]:nth-of-type(2)').value,
+    guests: form.querySelector('select').value,
+    rooms: form.querySelectorAll('select')[1].value
+  };
+
+  console.log('🏨 Buscando hotéis:', data);
+  showSearchResult('Hotéis', data);
+}
+
+/**
+ * Função para buscar pacotes
+ */
+function searchPackages(event) {
+  event.preventDefault();
+  const form = event.target;
+  
+  const data = {
+    type: 'packages',
+    origin: form.querySelector('input[type="text"]:nth-of-type(1)').value,
+    destination: form.querySelector('input[type="text"]:nth-of-type(2)').value,
+    departureDate: form.querySelector('input[type="date"]:nth-of-type(1)').value,
+    returnDate: form.querySelector('input[type="date"]:nth-of-type(2)').value,
+    passengers: form.querySelector('select').value,
+    duration: form.querySelectorAll('select')[1].value
+  };
+
+  console.log('📦 Buscando pacotes:', data);
+  showSearchResult('Pacotes Completos', data);
+}
+
+/**
+ * Mostra resultado da busca
+ */
+function showSearchResult(type, data) {
+  // Criar modal de resultado
+  const modal = document.createElement('div');
+  modal.className = 'search-result-modal';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Busca de ${type}</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="search-summary">
+          <h4>Detalhes da sua busca:</h4>
+          <div class="search-details">
+            ${Object.entries(data).map(([key, value]) => 
+              `<p><strong>${key}:</strong> ${value}</p>`
+            ).join('')}
+          </div>
+        </div>
+        <div class="search-actions">
+          <p>🎉 Sua busca foi enviada com sucesso!</p>
+          <p>Nossa equipe entrará em contato em breve com as melhores opções para você.</p>
+          <div class="action-buttons">
+            <a href="https://wa.me/5581992429403" class="btn btn-primary" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+              Falar no WhatsApp
+            </a>
+            <a href="tel:+5581992429403" class="btn btn-secondary">
+              <i class="fas fa-phone"></i>
+              Ligar Agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Adicionar estilos
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  `;
+
+  const content = modal.querySelector('.modal-content');
+  content.style.cssText = `
+    background: white;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  `;
+
+  const header = modal.querySelector('.modal-header');
+  header.style.cssText = `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  `;
+
+  const body = modal.querySelector('.modal-body');
+  body.style.cssText = `
+    padding: 1.5rem;
+  `;
+
+  const closeBtn = modal.querySelector('.close-modal');
+  closeBtn.style.cssText = `
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+  `;
+
+  // Adicionar ao DOM
+  document.body.appendChild(modal);
+
+  // Event listeners
+  closeBtn.addEventListener('click', () => {
+    document.body.removeChild(modal);
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      document.body.removeChild(modal);
+    }
+  });
+}
+
+// ========================================
+// MOTOR DE BUSCA ONER (FALLBACK)
 // ========================================
 
 
@@ -145,7 +345,7 @@ function updateActiveSection() {
  */
 function initializeOnerWidget() {
   console.log('🔍 Tentando inicializar widget Oner...');
-  
+
   // Verificar se o script da Oner foi carregado
   if (typeof window.OnerTravel !== 'undefined') {
     console.log('✅ Script Oner carregado, inicializando widget...');
@@ -163,14 +363,14 @@ function initializeOnerWidget() {
 function loadOnerWidget() {
   console.log('🔍 Procurando container do widget...');
   const widgetContainer = document.querySelector('.oner-search-widget');
-  
+
   console.log('Container encontrado:', widgetContainer);
   console.log('OnerTravel disponível:', typeof window.OnerTravel !== 'undefined');
 
   if (widgetContainer && window.OnerTravel) {
     try {
       console.log('🚀 Inicializando widget Oner...');
-      
+
       // Limpar container
       widgetContainer.innerHTML = '';
 
@@ -210,7 +410,7 @@ function loadOnerWidget() {
     console.error('❌ Container não encontrado ou OnerTravel não disponível');
     console.log('Container:', widgetContainer);
     console.log('OnerTravel:', window.OnerTravel);
-    
+
     // Tentar novamente em 2 segundos
     setTimeout(() => {
       console.log('🔄 Tentando novamente...');
@@ -238,13 +438,13 @@ function initializeAnimations() {
  * Anima elementos quando entram na viewport
  */
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.service-card, .destination-card, .contact-card, .about-text, .about-image, .search-panel, .value-item, .stat-item');
-    
-    elements.forEach(element => {
-        if (isElementInViewport(element)) {
-            element.classList.add('animate-in');
-        }
-    });
+  const elements = document.querySelectorAll('.service-card, .destination-card, .contact-card, .about-text, .about-image, .search-panel, .value-item, .stat-item');
+
+  elements.forEach(element => {
+    if (isElementInViewport(element)) {
+      element.classList.add('animate-in');
+    }
+  });
 }
 
 /**
@@ -520,244 +720,244 @@ document.addEventListener('DOMContentLoaded', trackInteractions);
 /**
  * Inicializa funcionalidades específicas da landing page
  */
-        function initializeLandingPageFeatures() {
-            initializeCarousel();
-            initializeCounterAnimation();
-            initializeSmoothScrollToSection();
-            initializeContactFormHandling();
-        }
+function initializeLandingPageFeatures() {
+  initializeCarousel();
+  initializeCounterAnimation();
+  initializeSmoothScrollToSection();
+  initializeContactFormHandling();
+}
 
 /**
  * Inicializa o carrossel do hero
  */
 function initializeCarousel() {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const prevBtn = document.getElementById('carouselPrev');
-    const nextBtn = document.getElementById('carouselNext');
-    
-    let currentSlide = 0;
-    let autoPlayInterval;
-    
-    if (slides.length === 0) return;
-    
-    // Função para mostrar slide específico
-    function showSlide(index) {
-        // Remover classe active de todos os slides e indicadores
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
-        
-        // Adicionar classe active ao slide e indicador atuais
-        slides[index].classList.add('active');
-        indicators[index].classList.add('active');
-        
-        currentSlide = index;
-    }
-    
-    // Função para próximo slide
-    function nextSlide() {
-        const nextIndex = (currentSlide + 1) % slides.length;
-        showSlide(nextIndex);
-    }
-    
-    // Função para slide anterior
-    function prevSlide() {
-        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(prevIndex);
-    }
-    
-    // Event listeners para navegação
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-    }
-    
-    if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
-    }
-    
-    // Event listeners para indicadores
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            showSlide(index);
-            resetAutoPlay();
-        });
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.indicator');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+
+  let currentSlide = 0;
+  let autoPlayInterval;
+
+  if (slides.length === 0) return;
+
+  // Função para mostrar slide específico
+  function showSlide(index) {
+    // Remover classe active de todos os slides e indicadores
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+
+    // Adicionar classe active ao slide e indicador atuais
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+
+    currentSlide = index;
+  }
+
+  // Função para próximo slide
+  function nextSlide() {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    showSlide(nextIndex);
+  }
+
+  // Função para slide anterior
+  function prevSlide() {
+    const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(prevIndex);
+  }
+
+  // Event listeners para navegação
+  if (nextBtn) {
+    nextBtn.addEventListener('click', nextSlide);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+  }
+
+  // Event listeners para indicadores
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      showSlide(index);
+      resetAutoPlay();
     });
-    
-    // Auto play
-    function startAutoPlay() {
-        autoPlayInterval = setInterval(nextSlide, 5000); // 5 segundos
-    }
-    
-    function stopAutoPlay() {
-        clearInterval(autoPlayInterval);
-    }
-    
-    function resetAutoPlay() {
-        stopAutoPlay();
-        startAutoPlay();
-    }
-    
-    // Pausar auto play ao passar o mouse
-    const carousel = document.querySelector('.carousel-container');
-    if (carousel) {
-        carousel.addEventListener('mouseenter', stopAutoPlay);
-        carousel.addEventListener('mouseleave', startAutoPlay);
-    }
-    
-    // Navegação por teclado
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            prevSlide();
-            resetAutoPlay();
-        } else if (e.key === 'ArrowRight') {
-            nextSlide();
-            resetAutoPlay();
-        }
-    });
-    
-    // Iniciar auto play
+  });
+
+  // Auto play
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 5000); // 5 segundos
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  function resetAutoPlay() {
+    stopAutoPlay();
     startAutoPlay();
-    
-    console.log('🎠 Carrossel inicializado com sucesso!');
+  }
+
+  // Pausar auto play ao passar o mouse
+  const carousel = document.querySelector('.carousel-container');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', startAutoPlay);
+  }
+
+  // Navegação por teclado
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+      resetAutoPlay();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+      resetAutoPlay();
+    }
+  });
+
+  // Iniciar auto play
+  startAutoPlay();
+
+  console.log('🎠 Carrossel inicializado com sucesso!');
 }
 
 /**
  * Inicializa animação de contadores
  */
 function initializeCounterAnimation() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    const animateCounter = (counter) => {
-        const target = parseInt(counter.textContent.replace(/\D/g, ''));
-        const duration = 2000; // 2 segundos
-        const step = target / (duration / 16); // 60fps
-        let current = 0;
-        
-        const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            
-            const suffix = counter.textContent.includes('+') ? '+' : '';
-            counter.textContent = Math.floor(current) + suffix;
-        }, 16);
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
+  const counters = document.querySelectorAll('.stat-number');
+
+  const animateCounter = (counter) => {
+    const target = parseInt(counter.textContent.replace(/\D/g, ''));
+    const duration = 2000; // 2 segundos
+    const step = target / (duration / 16); // 60fps
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+
+      const suffix = counter.textContent.includes('+') ? '+' : '';
+      counter.textContent = Math.floor(current) + suffix;
+    }, 16);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
     });
-    
-    counters.forEach(counter => {
-        observer.observe(counter);
-    });
+  });
+
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
 }
 
 /**
  * Inicializa scroll suave para seções
  */
 function initializeSmoothScrollToSection() {
-    const buttons = document.querySelectorAll('[href^="#"]');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+  const buttons = document.querySelectorAll('[href^="#"]');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = targetSection.offsetTop - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
         });
+      }
     });
+  });
 }
 
 /**
  * Inicializa tratamento de formulários de contato
  */
 function initializeContactFormHandling() {
-    // Adicionar funcionalidade aos botões de contato
-    const contactButtons = document.querySelectorAll('.contact-link, .service-btn, .destination-btn');
-    
-    contactButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Se for um link interno, não fazer nada
-            if (this.getAttribute('href')?.startsWith('#')) {
-                return;
-            }
-            
-            // Para links externos, adicionar tracking
-            const buttonText = this.textContent.trim();
-            console.log(`📞 Clique em: ${buttonText}`);
-            
-            // Aqui você pode adicionar código de analytics
-            // gtag('event', 'click', {
-            //     'event_category': 'contact',
-            //     'event_label': buttonText
-            // });
-        });
+  // Adicionar funcionalidade aos botões de contato
+  const contactButtons = document.querySelectorAll('.contact-link, .service-btn, .destination-btn');
+
+  contactButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      // Se for um link interno, não fazer nada
+      if (this.getAttribute('href')?.startsWith('#')) {
+        return;
+      }
+
+      // Para links externos, adicionar tracking
+      const buttonText = this.textContent.trim();
+      console.log(`📞 Clique em: ${buttonText}`);
+
+      // Aqui você pode adicionar código de analytics
+      // gtag('event', 'click', {
+      //     'event_category': 'contact',
+      //     'event_label': buttonText
+      // });
     });
+  });
 }
 
 /**
  * Inicializa lazy loading para imagens
  */
 function initializeLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
+  const images = document.querySelectorAll('img[data-src]');
+
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+        imageObserver.unobserve(img);
+      }
     });
-    
-    images.forEach(img => {
-        imageObserver.observe(img);
-    });
+  });
+
+  images.forEach(img => {
+    imageObserver.observe(img);
+  });
 }
 
 /**
  * Inicializa funcionalidades de acessibilidade
  */
 function initializeAccessibility() {
-    // Adicionar suporte a navegação por teclado
-    const focusableElements = document.querySelectorAll('button, a, input, textarea, select');
-    
-    focusableElements.forEach(element => {
-        element.addEventListener('focus', function() {
-            this.style.outline = '2px solid var(--primary-color)';
-            this.style.outlineOffset = '2px';
-        });
-        
-        element.addEventListener('blur', function() {
-            this.style.outline = 'none';
-        });
+  // Adicionar suporte a navegação por teclado
+  const focusableElements = document.querySelectorAll('button, a, input, textarea, select');
+
+  focusableElements.forEach(element => {
+    element.addEventListener('focus', function () {
+      this.style.outline = '2px solid var(--primary-color)';
+      this.style.outlineOffset = '2px';
     });
-    
-    // Adicionar skip links para acessibilidade
-    const skipLink = document.createElement('a');
-    skipLink.href = '#hero';
-    skipLink.textContent = 'Pular para conteúdo principal';
-    skipLink.className = 'skip-link';
-    skipLink.style.cssText = `
+
+    element.addEventListener('blur', function () {
+      this.style.outline = 'none';
+    });
+  });
+
+  // Adicionar skip links para acessibilidade
+  const skipLink = document.createElement('a');
+  skipLink.href = '#hero';
+  skipLink.textContent = 'Pular para conteúdo principal';
+  skipLink.className = 'skip-link';
+  skipLink.style.cssText = `
         position: absolute;
         top: -40px;
         left: 6px;
@@ -768,23 +968,23 @@ function initializeAccessibility() {
         z-index: 10000;
         transition: top 0.3s;
     `;
-    
-    skipLink.addEventListener('focus', function() {
-        this.style.top = '6px';
-    });
-    
-    skipLink.addEventListener('blur', function() {
-        this.style.top = '-40px';
-    });
-    
-    document.body.insertBefore(skipLink, document.body.firstChild);
+
+  skipLink.addEventListener('focus', function () {
+    this.style.top = '6px';
+  });
+
+  skipLink.addEventListener('blur', function () {
+    this.style.top = '-40px';
+  });
+
+  document.body.insertBefore(skipLink, document.body.firstChild);
 }
 
 // Inicializar funcionalidades da landing page
-document.addEventListener('DOMContentLoaded', function() {
-    initializeLandingPageFeatures();
-    initializeLazyLoading();
-    initializeAccessibility();
+document.addEventListener('DOMContentLoaded', function () {
+  initializeLandingPageFeatures();
+  initializeLazyLoading();
+  initializeAccessibility();
 });
 
 console.log('✅ Landing Page JavaScript carregado com sucesso!');
