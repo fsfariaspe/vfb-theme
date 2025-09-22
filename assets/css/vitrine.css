@@ -99,70 +99,66 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-dark);
+    color: #000000;
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transition);
-    position: relative;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
     background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: var(--transition);
+    border-radius: 12px;
+}
+
+.nav-link:hover::before {
+    opacity: 1;
 }
 
 .nav-link:hover {
-    color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.1);
-    transform: translateY(-1px);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    border-radius: 2px;
-    transition: var(--transition);
-    transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-    width: 80%;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-link.active {
-    color: var(--primary-color);
-    background: rgba(37, 99, 235, 0.15);
+    color: #000000;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.12) 100%);
     font-weight: 700;
-}
-
-.nav-link.active::after {
-    width: 80%;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-whatsapp {
-    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    background: #25d366;
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 12px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.2);
     font-size: 0.95rem;
-    letter-spacing: 0.5px;
 }
 
 .btn-whatsapp:hover {
+    background: #128c7e;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-    background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
 }
 
 .mobile-menu-toggle {
