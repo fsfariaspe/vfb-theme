@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeAnimations();
   initializeMobileMenu();
   initializeSmoothScroll();
-  initializeSearchTabs();
   initializeOnerWidget();
 
   console.log('🚀 Viaje Fácil Brasil - Vitrine carregada com sucesso!');
@@ -140,40 +139,6 @@ function updateActiveSection() {
 // MOTOR DE BUSCA ONER
 // ========================================
 
-/**
- * Inicializa as abas do motor de busca
- */
-function initializeSearchTabs() {
-  const searchTabs = document.querySelectorAll('.search-tab');
-  const searchPanels = document.querySelectorAll('.search-panel');
-
-  searchTabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-      const tabType = this.getAttribute('data-tab');
-
-      // Remover classe ativa de todas as abas
-      searchTabs.forEach(t => t.classList.remove('active'));
-
-      // Adicionar classe ativa à aba clicada
-      this.classList.add('active');
-
-      // Esconder todos os painéis
-      searchPanels.forEach(panel => panel.classList.remove('active'));
-
-      // Mostrar o painel correspondente
-      const targetPanel = document.getElementById(`${tabType}-panel`);
-      if (targetPanel) {
-        targetPanel.classList.add('active');
-      }
-
-      // Atualizar variável global
-      currentSearchTab = tabType;
-
-      // Recarregar widget se necessário
-      reloadOnerWidget(tabType);
-    });
-  });
-}
 
 /**
  * Inicializa o widget da Oner
@@ -181,7 +146,7 @@ function initializeSearchTabs() {
 function initializeOnerWidget() {
   // Verificar se o script da Oner foi carregado
   if (typeof window.OnerTravel !== 'undefined') {
-    loadOnerWidget(currentSearchTab);
+    loadOnerWidget();
   } else {
     // Aguardar o script carregar
     setTimeout(initializeOnerWidget, 500);
@@ -189,47 +154,32 @@ function initializeOnerWidget() {
 }
 
 /**
- * Carrega o widget da Oner para o tipo especificado
- * @param {string} type - Tipo do widget (flights, hotels, packages)
+ * Carrega o widget da Oner integrado
  */
-function loadOnerWidget(type) {
-  const widgetContainer = document.querySelector(`#${type}-panel .oner-search-widget`);
+function loadOnerWidget() {
+  const widgetContainer = document.querySelector('.oner-search-widget');
 
   if (widgetContainer && window.OnerTravel) {
     try {
       // Limpar container
       widgetContainer.innerHTML = '';
 
-      // Configurar widget baseado no tipo
+      // Configurar widget integrado
       let widgetConfig = {
         container: widgetContainer,
+        type: 'travel', // Widget integrado com todas as abas
         theme: 'light',
         language: 'pt-BR',
         currency: 'BRL'
       };
 
-      switch (type) {
-        case 'flights':
-          widgetConfig.type = 'flights';
-          widgetConfig.features = ['calendar', 'passengers', 'cabin_class'];
-          break;
-        case 'hotels':
-          widgetConfig.type = 'hotels';
-          widgetConfig.features = ['calendar', 'guests', 'rooms'];
-          break;
-        case 'packages':
-          widgetConfig.type = 'packages';
-          widgetConfig.features = ['calendar', 'passengers', 'destinations'];
-          break;
-      }
-
       // Inicializar widget
       window.OnerTravel.init(widgetConfig);
 
-      console.log(`✅ Widget Oner ${type} carregado com sucesso`);
+      console.log('✅ Widget Oner integrado carregado com sucesso');
 
     } catch (error) {
-      console.error(`❌ Erro ao carregar widget Oner ${type}:`, error);
+      console.error('❌ Erro ao carregar widget Oner:', error);
 
       // Fallback: mostrar mensagem de erro
       widgetContainer.innerHTML = `
@@ -247,16 +197,6 @@ function loadOnerWidget(type) {
   }
 }
 
-/**
- * Recarrega o widget da Oner
- * @param {string} type - Tipo do widget a ser recarregado
- */
-function reloadOnerWidget(type) {
-  // Aguardar um pouco para a transição da aba
-  setTimeout(() => {
-    loadOnerWidget(type);
-  }, 300);
-}
 
 // ========================================
 // ANIMAÇÕES
