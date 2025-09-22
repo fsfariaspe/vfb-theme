@@ -1877,24 +1877,30 @@ header .nav .nav-list li a:hover {
 }
 
 /* ========================================
-   WIDGET ONER OFICIAL - APENAS VISIBILIDADE
+   WIDGET ONER OFICIAL - SEM MOLDURA
    ======================================== */
 
-/* Garantir que o widget seja totalmente visível */
+/* Remover moldura e ajustar espaçamento */
 #wrapper {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     overflow: visible !important;
-    margin-bottom: 3rem;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .search-container {
-    min-height: 500px;
-    padding-bottom: 3rem;
+    min-height: auto;
+    padding: 0;
+    margin: 0;
 }
 
-/* Responsive - apenas ajustar espaço */
+/* Responsive */
 @media (max-width: 768px) {
     .search-container {
-        min-height: 450px;
-        padding-bottom: 2rem;
+        min-height: auto;
+        padding: 0;
+        margin: 0;
     }
 }
