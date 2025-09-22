@@ -1454,6 +1454,56 @@ header .nav .nav-list li a:hover {
     background: rgba(255, 255, 255, 0.8);
 }
 
+/* Texto individual do destino - Parte superior centralizada */
+.slide-destination-info {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.destination-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.destination-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .slide-destination-info {
+        top: 20%;
+        padding: 1rem 1.5rem;
+        max-width: 90%;
+    }
+    
+    .destination-title {
+        font-size: 1.8rem;
+    }
+    
+    .destination-subtitle {
+        font-size: 1rem;
+    }
+}
+
 /* Stats Section no Carrossel */
 .hero-carousel .hero-stats {
     position: absolute;
