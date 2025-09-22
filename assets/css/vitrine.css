@@ -1160,6 +1160,55 @@ header .nav .nav-list li a:hover {
 
     .nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .nav.mobile-active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+        list-style: none;
+    }
+
+    .nav-list li {
+        margin: 0;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 1rem;
+        color: #374151;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .nav-list a:hover {
+        background: #f8fafc;
+        color: #3b82f6;
+        padding-left: 1.5rem;
     }
 
     .mobile-menu-toggle {
@@ -1280,6 +1329,27 @@ header .nav .nav-list li a:hover {
 
     .destination-subtitle {
         font-size: 0.75rem;
+    }
+
+    /* Estatísticas responsivas no mobile pequeno */
+    .hero-carousel .hero-stats {
+        bottom: 4rem;
+        gap: 0.5rem;
+        max-width: 95%;
+        width: 95%;
+        padding: 0 0.5rem;
+    }
+
+    .hero-carousel .stat-item {
+        padding: 0.5rem 0.3rem;
+    }
+
+    .hero-carousel .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .hero-carousel .stat-label {
+        font-size: 0.7rem;
     }
 
     /* Selos ainda maiores no mobile pequeno */
@@ -1585,12 +1655,12 @@ header .nav .nav-list li a:hover {
     transform: translateX(-50%);
     text-align: center;
     z-index: 3;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 2rem;
-    border-radius: 15px;
-    backdrop-filter: blur(1px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
 }
 
 .destination-title {
@@ -1599,14 +1669,14 @@ header .nav .nav-list li a:hover {
     font-weight: 700;
     color: white;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9);
 }
 
 .destination-subtitle {
     font-size: 1.2rem;
     color: white;
     font-weight: 400;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
     margin: 0;
 }
 
@@ -1667,9 +1737,11 @@ header .nav .nav-list li a:hover {
     transform: translateX(-50%);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 600px;
+    gap: 1rem;
+    max-width: 90%;
+    width: 90%;
     z-index: 3;
+    padding: 0 1rem;
 }
 
 .hero-carousel .stat-item {
