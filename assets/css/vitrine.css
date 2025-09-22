@@ -706,6 +706,13 @@ header .nav .nav-list li a:hover {
     align-items: start;
 }
 
+.about-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+}
+
 .about-text .section-header {
     text-align: left;
     margin-bottom: 2rem;
@@ -781,23 +788,29 @@ header .nav .nav-list li a:hover {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-xl);
+    max-width: 280px;
+    margin: 0 auto;
 }
 
 .image-container img {
     width: 100%;
-    height: 400px;
+    height: 320px;
     object-fit: cover;
 }
 
 .image-info {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(249, 115, 22, 0.95) 100%);
     color: white;
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-width: 250px;
 }
 
 .image-info h4 {
