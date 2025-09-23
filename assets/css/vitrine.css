@@ -1182,7 +1182,7 @@ header .nav .nav-list li a:hover {
 
     .nav-list {
         flex-direction: column;
-        padding: 1rem;
+        padding: 0.5rem;
         margin: 0;
         list-style: none;
     }
@@ -1198,17 +1198,18 @@ header .nav .nav-list li a:hover {
 
     .nav-list a {
         display: block;
-        padding: 1rem;
+        padding: 0.6rem 1rem;
         color: #374151;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
+        font-size: 0.9rem;
     }
 
     .nav-list a:hover {
         background: #f8fafc;
         color: #3b82f6;
-        padding-left: 1.5rem;
+        padding-left: 1.2rem;
     }
 
     .mobile-menu-toggle {
