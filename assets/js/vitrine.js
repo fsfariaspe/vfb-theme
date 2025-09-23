@@ -268,6 +268,23 @@ function initializeMobileMenu() {
       });
     });
 
+    // Fechar menu ao tocar fora dele
+    document.addEventListener('touchstart', function(e) {
+      if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+        if (nav.classList.contains('mobile-active')) {
+          console.log('🔒 Fechando menu por toque fora');
+          nav.classList.remove('mobile-active');
+          mobileMenuToggle.classList.remove('active');
+        }
+      }
+    });
+
+    // Garantir que o scroll funcione
+    document.addEventListener('touchmove', function(e) {
+      // Permitir scroll normal
+      return true;
+    }, { passive: true });
+
     console.log('✅ Menu mobile configurado com sucesso!');
   } else {
     console.error('❌ ERRO: Elementos não encontrados!');
