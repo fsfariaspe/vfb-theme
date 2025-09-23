@@ -1343,25 +1343,35 @@ header .nav .nav-list li a:hover {
         font-size: 0.75rem;
     }
 
-    /* Estatísticas responsivas no mobile pequeno */
+    /* Estatísticas unificadas no mobile */
     .hero-carousel .hero-stats {
         bottom: 2rem;
-        gap: 0.5rem;
-        max-width: 98%;
-        width: 98%;
-        padding: 0 0.5rem;
+        gap: 0;
+        max-width: 90%;
+        width: 90%;
+        padding: 0;
         grid-template-columns: 1fr;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .hero-carousel .stat-item {
-        padding: 1rem 0.5rem;
-        margin-bottom: 0.5rem;
+        padding: 1rem 1.5rem;
+        margin-bottom: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
         text-align: left;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(15px);
+        background: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+    }
+
+    .hero-carousel .stat-item:last-child {
+        border-bottom: none;
     }
 
     .hero-carousel .stat-number {
@@ -1414,28 +1424,27 @@ header .nav .nav-list li a:hover {
 @media (max-width: 360px) {
     .hero-carousel .hero-stats {
         bottom: 1rem;
-        max-width: 100%;
-        width: 100%;
-        padding: 0 0.25rem;
+        max-width: 95%;
+        width: 95%;
+        padding: 0;
     }
 
     .hero-carousel .stat-item {
-        padding: 0.75rem 0.5rem;
-        margin-bottom: 0.25rem;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
+        padding: 0.75rem 1rem;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
     }
 
     .hero-carousel .stat-number {
         font-size: 1.5rem;
-        margin-right: 0;
-        margin-bottom: 0.25rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0;
     }
 
     .hero-carousel .stat-label {
         font-size: 0.7rem;
-        text-align: center;
+        text-align: left;
     }
 
     /* Selos ainda maiores no mobile pequeno */
