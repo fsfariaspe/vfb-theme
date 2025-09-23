@@ -1190,7 +1190,7 @@ header .nav .nav-list li a:hover {
         background: white !important;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
         z-index: 1000 !important;
-        border: 2px solid red !important; /* Debug: borda vermelha para ver se aparece */
+        /* Debug: borda vermelha para ver se aparece */
     }
 
     .nav-list {

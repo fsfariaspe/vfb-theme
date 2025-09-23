@@ -191,7 +191,7 @@ function isElementInViewport(element) {
  */
 function initializeMobileMenu() {
   console.log('🔧 Inicializando menu mobile SIMPLES...');
-  
+
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const nav = document.querySelector('.nav');
 
@@ -203,7 +203,7 @@ function initializeMobileMenu() {
     // Função simples para alternar menu
     function toggleMenu() {
       console.log('🔄 Alternando menu...');
-      
+
       if (nav.classList.contains('mobile-active')) {
         console.log('🔒 Fechando menu');
         nav.classList.remove('mobile-active');
@@ -223,7 +223,7 @@ function initializeMobileMenu() {
     mobileMenuToggle.ontouchend = null;
 
     // Event listener simples e direto
-    mobileMenuToggle.onclick = function(e) {
+    mobileMenuToggle.onclick = function (e) {
       console.log('🖱️ CLIQUE DETECTADO!');
       e.preventDefault();
       e.stopPropagation();
@@ -231,12 +231,45 @@ function initializeMobileMenu() {
     };
 
     // Event listener para touch
-    mobileMenuToggle.ontouchend = function(e) {
+    mobileMenuToggle.ontouchend = function (e) {
       console.log('👆 TOUCH DETECTADO!');
       e.preventDefault();
       e.stopPropagation();
       toggleMenu();
     };
+
+    // Fechar menu ao clicar em um link e fazer scroll
+    const navLinks = nav.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        console.log('🔗 Link clicado:', targetId);
+        
+        if (targetSection) {
+          console.log('📍 Fazendo scroll para:', targetId);
+          
+          // Fechar menu mobile
+          nav.classList.remove('mobile-active');
+          mobileMenuToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          
+          // Fazer scroll suave para a seção
+          const headerHeight = document.querySelector('.header').offsetHeight;
+          const targetPosition = targetSection.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          console.log('✅ Scroll realizado com sucesso!');
+        } else {
+          console.error('❌ Seção não encontrada:', targetId);
+        }
+      });
+    });
 
     console.log('✅ Menu mobile configurado com sucesso!');
   } else {
