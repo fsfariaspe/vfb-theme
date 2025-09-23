@@ -188,14 +188,19 @@ function isElementInViewport(element) {
  * Inicializa o menu mobile
  */
 function initializeMobileMenu() {
+  console.log('🔧 Inicializando menu mobile...');
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const nav = document.querySelector('.nav');
 
+  console.log('📱 Elementos encontrados:', { mobileMenuToggle, nav });
+
   if (mobileMenuToggle && nav) {
     mobileMenuToggle.addEventListener('click', function () {
+      console.log('🖱️ Clique no menu mobile!');
       nav.classList.toggle('mobile-active');
       this.classList.toggle('active');
       document.body.classList.toggle('menu-open');
+      console.log('✅ Menu toggled!');
     });
 
     // Fechar menu ao clicar em um link
