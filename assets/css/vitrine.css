@@ -1499,13 +1499,14 @@ header .nav .nav-list li a:hover {
 .hero-carousel {
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .carousel-container {
     position: relative;
     width: 100%;
     height: 100vh;
+    overflow: visible;
 }
 
 .carousel-slides {
