@@ -46,6 +46,8 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
     scroll-behavior: smooth;
+    height: auto !important;
+    overflow-y: auto !important;
 }
 
 .container {

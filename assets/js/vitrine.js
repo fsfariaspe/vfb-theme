@@ -224,16 +224,12 @@ function initializeMobileMenu() {
     // Event listener simples e direto
     mobileMenuToggle.onclick = function (e) {
       console.log('🖱️ CLIQUE DETECTADO!');
-      e.preventDefault();
-      e.stopPropagation();
       toggleMenu();
     };
 
     // Event listener para touch
     mobileMenuToggle.ontouchend = function (e) {
       console.log('👆 TOUCH DETECTADO!');
-      e.preventDefault();
-      e.stopPropagation();
       toggleMenu();
     };
 
