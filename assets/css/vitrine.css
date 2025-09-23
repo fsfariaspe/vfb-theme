@@ -2048,6 +2048,35 @@ html, body {
     touch-action: pan-y !important;
 }
 
+/* Correções específicas para Chrome mobile */
+@media screen and (max-width: 768px) {
+    html {
+        overflow: auto !important;
+        height: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    body {
+        overflow: auto !important;
+        height: auto !important;
+        position: relative !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* Remover qualquer bloqueio de scroll no Chrome */
+    * {
+        touch-action: manipulation !important;
+    }
+    
+    /* Permitir scroll apenas vertical */
+    html, body {
+        touch-action: pan-y !important;
+        overscroll-behavior-y: auto !important;
+        overscroll-behavior-x: none !important;
+    }
+}
+
 .search-container {
     min-height: auto;
     padding: 0;
