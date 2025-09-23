@@ -208,12 +208,10 @@ function initializeMobileMenu() {
         console.log('🔒 Fechando menu');
         nav.classList.remove('mobile-active');
         mobileMenuToggle.classList.remove('active');
-        document.body.classList.remove('menu-open');
       } else {
         console.log('🔓 Abrindo menu');
         nav.classList.add('mobile-active');
         mobileMenuToggle.classList.add('active');
-        document.body.classList.add('menu-open');
       }
     }
 
@@ -253,7 +251,6 @@ function initializeMobileMenu() {
           // Fechar menu mobile
           nav.classList.remove('mobile-active');
           mobileMenuToggle.classList.remove('active');
-          document.body.classList.remove('menu-open');
           
           // Fazer scroll suave para a seção
           const headerHeight = document.querySelector('.header').offsetHeight;
@@ -342,9 +339,6 @@ function initializeSmoothScroll() {
             transform: rotate(-45deg) translate(7px, -6px);
         }
         
-        .menu-open {
-            overflow: hidden;
-        }
         
         @media (max-width: 768px) {
             .nav {
