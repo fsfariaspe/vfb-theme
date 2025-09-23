@@ -46,8 +46,6 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
     scroll-behavior: smooth;
-    height: auto !important;
-    overflow-y: auto !important;
 }
 
 .container {
@@ -200,10 +198,6 @@ header .nav .nav-list li a:hover {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    position: relative;
-    z-index: 1001;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-menu-toggle span {
@@ -1188,7 +1182,7 @@ header .nav .nav-list li a:hover {
 
     .nav-list {
         flex-direction: column;
-        padding: 0.3rem;
+        padding: 1rem;
         margin: 0;
         list-style: none;
     }
@@ -1204,18 +1198,17 @@ header .nav .nav-list li a:hover {
 
     .nav-list a {
         display: block;
-        padding: 0.3rem 0.6rem;
+        padding: 1rem;
         color: #374151;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
-        font-size: 0.8rem;
     }
 
     .nav-list a:hover {
         background: #f8fafc;
         color: #3b82f6;
-        padding-left: 0.8rem;
+        padding-left: 1.5rem;
     }
 
     .mobile-menu-toggle {
@@ -1501,14 +1494,13 @@ header .nav .nav-list li a:hover {
 .hero-carousel {
     min-height: 100vh;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .carousel-container {
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: visible;
 }
 
 .carousel-slides {
@@ -2013,7 +2005,6 @@ header .nav .nav-list li a:hover {
     padding: 0 !important;
     margin: 0 !important;
 }
-
 
 .search-container {
     min-height: auto;

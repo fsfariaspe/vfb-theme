@@ -16,9 +16,6 @@ let currentSearchTab = 'flights';
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('🚀 DOM carregado, iniciando funções...');
-  
-  
   initializeNavigation();
   initializeScrollEffects();
   initializeAnimations();
@@ -191,96 +188,34 @@ function isElementInViewport(element) {
  * Inicializa o menu mobile
  */
 function initializeMobileMenu() {
-  console.log('🔧 Inicializando menu mobile SIMPLES...');
-
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const nav = document.querySelector('.nav');
 
-  console.log('📱 Elementos encontrados:', { mobileMenuToggle, nav });
-
   if (mobileMenuToggle && nav) {
-    console.log('✅ Elementos OK, configurando menu...');
+    mobileMenuToggle.addEventListener('click', function () {
+      nav.classList.toggle('mobile-active');
+      this.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
 
-    // Função simples para alternar menu
-    function toggleMenu() {
-      console.log('🔄 Alternando menu...');
-
-      if (nav.classList.contains('mobile-active')) {
-        console.log('🔒 Fechando menu');
+    // Fechar menu ao clicar em um link
+    const navLinks = nav.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
         nav.classList.remove('mobile-active');
         mobileMenuToggle.classList.remove('active');
-      } else {
-        console.log('🔓 Abrindo menu');
-        nav.classList.add('mobile-active');
-        mobileMenuToggle.classList.add('active');
-      }
-    }
-
-    // Remover todos os event listeners existentes
-    mobileMenuToggle.onclick = null;
-    mobileMenuToggle.ontouchstart = null;
-    mobileMenuToggle.ontouchend = null;
-
-    // Event listener simples e direto
-    mobileMenuToggle.onclick = function (e) {
-      console.log('🖱️ CLIQUE DETECTADO!');
-      toggleMenu();
-    };
-
-    // Event listener para touch
-    mobileMenuToggle.ontouchend = function (e) {
-      console.log('👆 TOUCH DETECTADO!');
-      toggleMenu();
-    };
-
-    // Fechar menu ao clicar em um link e fazer scroll
-    const navLinks = nav.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        console.log('🔗 Link clicado:', targetId);
-        
-        if (targetSection) {
-          console.log('📍 Fazendo scroll para:', targetId);
-          
-          // Fechar menu mobile
-          nav.classList.remove('mobile-active');
-          mobileMenuToggle.classList.remove('active');
-          
-          // Fazer scroll suave para a seção
-          const headerHeight = document.querySelector('.header').offsetHeight;
-          const targetPosition = targetSection.offsetTop - headerHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-          
-          console.log('✅ Scroll realizado com sucesso!');
-        } else {
-          console.error('❌ Seção não encontrada:', targetId);
-        }
+        document.body.classList.remove('menu-open');
       });
     });
 
-    // Fechar menu ao tocar fora dele (apenas para links)
-    document.addEventListener('click', function(e) {
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', function (e) {
       if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-        if (nav.classList.contains('mobile-active')) {
-          console.log('🔒 Fechando menu por clique fora');
-          nav.classList.remove('mobile-active');
-          mobileMenuToggle.classList.remove('active');
-        }
+        nav.classList.remove('mobile-active');
+        mobileMenuToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
       }
     });
-
-    console.log('✅ Menu mobile configurado com sucesso!');
-  } else {
-    console.error('❌ ERRO: Elementos não encontrados!');
-    console.error('📱 mobileMenuToggle:', mobileMenuToggle);
-    console.error('🧭 nav:', nav);
   }
 }
 
@@ -323,16 +258,10 @@ function initializeSmoothScroll() {
         }
         
         .mobile-active {
-            display: flex !important;
-            flex-direction: column;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: var(--shadow-lg);
-            padding: 2rem;
-            z-index: 999;
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
         }
         
         .mobile-menu-toggle.active span:nth-child(1) {
@@ -347,6 +276,9 @@ function initializeSmoothScroll() {
             transform: rotate(-45deg) translate(7px, -6px);
         }
         
+        .menu-open {
+            overflow: hidden;
+        }
         
         @media (max-width: 768px) {
             .nav {
