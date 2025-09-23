@@ -18,19 +18,37 @@ let currentSearchTab = 'flights';
 document.addEventListener('DOMContentLoaded', function () {
   console.log('🚀 DOM carregado, iniciando funções...');
   
-  // Correção específica para Chrome mobile
+  // Correção agressiva para Chrome mobile
   if (navigator.userAgent.includes('Chrome') && window.innerWidth <= 768) {
-    console.log('🔧 Aplicando correções para Chrome mobile...');
+    console.log('🔧 Aplicando correções AGRESSIVAS para Chrome mobile...');
     
-    // Remover qualquer bloqueio de scroll
+    // Forçar scroll a funcionar
     document.body.style.overflow = 'auto';
     document.documentElement.style.overflow = 'auto';
     document.body.style.height = 'auto';
     document.documentElement.style.height = 'auto';
+    document.body.style.position = 'relative';
+    document.documentElement.style.position = 'relative';
     
-    // Garantir que touch events funcionem
+    // Touch events mais agressivos
     document.body.style.touchAction = 'pan-y';
     document.documentElement.style.touchAction = 'pan-y';
+    document.body.style.webkitOverflowScrolling = 'touch';
+    document.documentElement.style.webkitOverflowScrolling = 'touch';
+    
+    // Remover qualquer bloqueio de eventos
+    document.body.style.pointerEvents = 'auto';
+    document.documentElement.style.pointerEvents = 'auto';
+    
+    // Forçar redimensionamento para liberar scroll
+    setTimeout(() => {
+      window.scrollTo(0, 1);
+      window.scrollTo(0, 0);
+    }, 100);
+    
+    // Event listener para garantir scroll
+    document.addEventListener('touchstart', function() {}, { passive: true });
+    document.addEventListener('touchmove', function() {}, { passive: true });
   }
   
   initializeNavigation();
