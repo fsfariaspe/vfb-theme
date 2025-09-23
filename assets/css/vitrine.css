@@ -1777,10 +1777,71 @@ header .nav .nav-list li a:hover {
     padding: 0 1rem;
 }
 
-/* Mobile: Ocultar estatísticas */
+/* Mobile: Bloco único das estatísticas */
 @media (max-width: 768px) {
     .hero-carousel .hero-stats {
-        display: none !important;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        padding: 0.5rem 1rem;
+        bottom: 2rem;
+        max-width: 90%;
+        width: 90%;
+        justify-content: center;
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    .hero-carousel .stat-item {
+        background: transparent !important;
+        border-radius: 0 !important;
+        border: none !important;
+        padding: 0.2rem 0;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        min-height: auto;
+        height: auto;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-carousel .stat-item:last-child {
+        border-bottom: none;
+    }
+
+    .hero-carousel .stat-item:hover {
+        transform: none !important;
+        background: transparent !important;
+    }
+
+    .hero-carousel .stat-number {
+        font-size: 1rem !important;
+        font-weight: 700;
+        color: #ff6b35;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        margin-right: 0.8rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        line-height: 1;
+    }
+
+    .hero-carousel .stat-label {
+        font-size: 0.7rem !important;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        flex: 1;
+        line-height: 1;
+        text-align: left;
+        margin: 0;
     }
 }
 
