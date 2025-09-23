@@ -123,16 +123,7 @@ body:not(.menu-open) {
 }
 
 .nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
-    opacity: 0;
-    transition: var(--transition);
-    border-radius: 12px;
+    display: none;
 }
 
 .nav-link:hover::before {
@@ -140,18 +131,20 @@ body:not(.menu-open) {
 }
 
 .nav-link:hover {
-    color: #000000 !important;
+    color: #3b82f6 !important;
     text-decoration: none !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: none;
 }
 
 .nav-link.active {
-    color: #000000 !important;
+    color: #3b82f6 !important;
     text-decoration: none !important;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.12) 100%) !important;
-    font-weight: 700 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: transparent !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 0.3rem;
 }
 
 /* Forçar remoção de sublinhados de todos os links do menu */
