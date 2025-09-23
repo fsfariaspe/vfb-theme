@@ -45,7 +45,19 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
+    overflow-y: auto;
     scroll-behavior: smooth;
+}
+
+/* Garantir que o scroll funcione corretamente no Chrome */
+html {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Garantir que o body não tenha overflow hidden por padrão */
+body:not(.menu-open) {
+    overflow-y: auto !important;
 }
 
 .container {

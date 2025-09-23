@@ -16,6 +16,9 @@ let currentSearchTab = 'flights';
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Garantir que o body não tenha classes problemáticas no carregamento
+  document.body.classList.remove('menu-open');
+  
   initializeNavigation();
   initializeScrollEffects();
   initializeAnimations();
@@ -280,6 +283,11 @@ function initializeSmoothScroll() {
             overflow: hidden;
         }
         
+        /* Garantir que o scroll funcione normalmente quando o menu não estiver aberto */
+        body:not(.menu-open) {
+            overflow: visible !important;
+        }
+        
         @media (max-width: 768px) {
             .nav {
                 display: none;
@@ -354,6 +362,11 @@ function throttle(func, limit) {
 
 // Inicializar efeitos adicionais quando a página carregar
 window.addEventListener('load', function () {
+  // Garantir que o scroll funcione corretamente
+  document.body.classList.remove('menu-open');
+  document.documentElement.style.overflow = 'auto';
+  document.body.style.overflow = 'auto';
+  
   // Adicionar classe loaded ao body para animações CSS
   document.body.classList.add('loaded');
 });
