@@ -1189,10 +1189,8 @@ header .nav .nav-list li a:hover {
         width: 100% !important;
         background: white !important;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-        z-index: 100 !important;
-        pointer-events: auto !important;
-        max-height: 300px !important;
-        overflow-y: auto !important;
+        z-index: 50 !important;
+        pointer-events: none !important;
     }
 
     .nav-list {
@@ -1219,6 +1217,7 @@ header .nav .nav-list li a:hover {
         font-weight: 500;
         transition: all 0.3s ease;
         font-size: 0.8rem;
+        pointer-events: auto;
     }
 
     .nav-list a:hover {
