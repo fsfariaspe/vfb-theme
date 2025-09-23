@@ -17,7 +17,7 @@ let currentSearchTab = 'flights';
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('🚀 DOM carregado, iniciando funções...');
-  
+
   initializeNavigation();
   initializeScrollEffects();
   initializeAnimations();
@@ -198,34 +198,34 @@ function initializeMobileMenu() {
 
   if (mobileMenuToggle && nav) {
     console.log('✅ Adicionando event listener ao botão...');
-    
-    // Teste múltiplo de event listeners
-    mobileMenuToggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log('🖱️ Clique no menu mobile detectado!');
+
+    // Função para alternar menu
+    function toggleMenu() {
+      console.log('🖱️ Toggle menu chamado!');
       
       const isActive = nav.classList.contains('mobile-active');
       console.log('📊 Estado atual do menu:', isActive ? 'ABERTO' : 'FECHADO');
       
       nav.classList.toggle('mobile-active');
-      this.classList.toggle('active');
+      mobileMenuToggle.classList.toggle('active');
       document.body.classList.toggle('menu-open');
       
       console.log('📊 Novo estado do menu:', nav.classList.contains('mobile-active') ? 'ABERTO' : 'FECHADO');
       console.log('🎯 Classes aplicadas:', {
         'nav.mobile-active': nav.classList.contains('mobile-active'),
-        'button.active': this.classList.contains('active'),
+        'button.active': mobileMenuToggle.classList.contains('active'),
         'body.menu-open': document.body.classList.contains('menu-open')
       });
-    });
+    }
     
-    // Adicionar também touchstart para dispositivos móveis
-    mobileMenuToggle.addEventListener('touchstart', function (e) {
+    // Múltiplos event listeners para garantir funcionamento
+    mobileMenuToggle.addEventListener('click', toggleMenu);
+    mobileMenuToggle.addEventListener('touchend', function(e) {
       e.preventDefault();
-      console.log('👆 Touch no menu mobile detectado!');
-      this.click(); // Dispara o evento click
+      console.log('👆 Touch no menu mobile!');
+      toggleMenu();
     });
+    mobileMenuToggle.addEventListener('mousedown', toggleMenu);
 
     // Fechar menu ao clicar em um link
     const navLinks = nav.querySelectorAll('.nav-link');
@@ -249,13 +249,13 @@ function initializeMobileMenu() {
     console.error('❌ ERRO: Menu mobile não pôde ser inicializado!');
     console.error('📱 mobileMenuToggle encontrado:', !!mobileMenuToggle);
     console.error('🧭 nav encontrado:', !!nav);
-    
+
     if (!mobileMenuToggle) {
       console.error('🔍 Procurando por elementos com ID mobileMenuToggle...');
       const allButtons = document.querySelectorAll('button');
       console.error('📋 Todos os botões encontrados:', allButtons);
     }
-    
+
     if (!nav) {
       console.error('🔍 Procurando por elementos com classe nav...');
       const allNavs = document.querySelectorAll('.nav');

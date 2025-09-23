@@ -198,6 +198,10 @@ header .nav .nav-list li a:hover {
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    position: relative;
+    z-index: 1001;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-menu-toggle span {
@@ -1205,18 +1209,18 @@ header .nav .nav-list li a:hover {
 
     .nav-list a {
         display: block;
-        padding: 0.4rem 0.8rem;
+        padding: 0.3rem 0.6rem;
         color: #374151;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .nav-list a:hover {
         background: #f8fafc;
         color: #3b82f6;
-        padding-left: 1rem;
+        padding-left: 0.8rem;
     }
 
     .mobile-menu-toggle {
