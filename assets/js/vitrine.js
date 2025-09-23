@@ -190,107 +190,59 @@ function isElementInViewport(element) {
  * Inicializa o menu mobile
  */
 function initializeMobileMenu() {
-  console.log('🔧 Inicializando menu mobile...');
+  console.log('🔧 Inicializando menu mobile SIMPLES...');
+  
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const nav = document.querySelector('.nav');
 
   console.log('📱 Elementos encontrados:', { mobileMenuToggle, nav });
 
   if (mobileMenuToggle && nav) {
-    console.log('✅ Adicionando event listener ao botão...');
+    console.log('✅ Elementos OK, configurando menu...');
 
-    // Controle de estado do menu
-    let isMenuOpen = false;
-    let touchStartTime = 0;
-    
-    // Função para alternar menu
+    // Função simples para alternar menu
     function toggleMenu() {
-      if (isMenuOpen) {
-        console.log('🔒 Fechando menu...');
+      console.log('🔄 Alternando menu...');
+      
+      if (nav.classList.contains('mobile-active')) {
+        console.log('🔒 Fechando menu');
         nav.classList.remove('mobile-active');
         mobileMenuToggle.classList.remove('active');
         document.body.classList.remove('menu-open');
-        isMenuOpen = false;
       } else {
-        console.log('🔓 Abrindo menu...');
+        console.log('🔓 Abrindo menu');
         nav.classList.add('mobile-active');
         mobileMenuToggle.classList.add('active');
         document.body.classList.add('menu-open');
-        isMenuOpen = true;
       }
-      
-      console.log('📊 Estado do menu:', isMenuOpen ? 'ABERTO' : 'FECHADO');
     }
-    
-    // Event listener para toque (funciona no mobile real)
-    mobileMenuToggle.addEventListener('touchstart', function(e) {
-      touchStartTime = Date.now();
-      console.log('👆 Touch start detectado!');
-    });
-    
-    mobileMenuToggle.addEventListener('touchend', function(e) {
+
+    // Remover todos os event listeners existentes
+    mobileMenuToggle.onclick = null;
+    mobileMenuToggle.ontouchstart = null;
+    mobileMenuToggle.ontouchend = null;
+
+    // Event listener simples e direto
+    mobileMenuToggle.onclick = function(e) {
+      console.log('🖱️ CLIQUE DETECTADO!');
       e.preventDefault();
       e.stopPropagation();
-      
-      const touchDuration = Date.now() - touchStartTime;
-      console.log('👆 Touch end detectado! Duração:', touchDuration + 'ms');
-      
-      // Só executa se for um toque rápido (evita conflito com scroll)
-      if (touchDuration < 300) {
-        toggleMenu();
-      }
-    });
-    
-    // Fallback para desktop
-    mobileMenuToggle.addEventListener('click', function(e) {
-      if (!('ontouchstart' in window)) {
-        e.preventDefault();
-        toggleMenu();
-      }
-    });
+      toggleMenu();
+    };
 
-    // Fechar menu ao clicar em um link
-    const navLinks = nav.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        if (isMenuOpen) {
-          nav.classList.remove('mobile-active');
-          mobileMenuToggle.classList.remove('active');
-          document.body.classList.remove('menu-open');
-          isMenuOpen = false;
-          console.log('🔒 Menu fechado por clique no link');
-        }
-      });
-    });
+    // Event listener para touch
+    mobileMenuToggle.ontouchend = function(e) {
+      console.log('👆 TOUCH DETECTADO!');
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    };
 
-    // Fechar menu ao clicar fora
-    document.addEventListener('click', function (e) {
-      if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-        if (isMenuOpen) {
-          nav.classList.remove('mobile-active');
-          mobileMenuToggle.classList.remove('active');
-          document.body.classList.remove('menu-open');
-          isMenuOpen = false;
-          console.log('🔒 Menu fechado por clique fora');
-        }
-      }
-    });
+    console.log('✅ Menu mobile configurado com sucesso!');
   } else {
-    console.error('❌ ERRO: Menu mobile não pôde ser inicializado!');
-    console.error('📱 mobileMenuToggle encontrado:', !!mobileMenuToggle);
-    console.error('🧭 nav encontrado:', !!nav);
-
-    if (!mobileMenuToggle) {
-      console.error('🔍 Procurando por elementos com ID mobileMenuToggle...');
-      const allButtons = document.querySelectorAll('button');
-      console.error('📋 Todos os botões encontrados:', allButtons);
-    }
-
-    if (!nav) {
-      console.error('🔍 Procurando por elementos com classe nav...');
-      const allNavs = document.querySelectorAll('.nav');
-      console.error('📋 Todos os elementos .nav encontrados:', allNavs);
-    }
+    console.error('❌ ERRO: Elementos não encontrados!');
+    console.error('📱 mobileMenuToggle:', mobileMenuToggle);
+    console.error('🧭 nav:', nav);
   }
 }
 

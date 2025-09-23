@@ -1186,9 +1186,11 @@ header .nav .nav-list li a:hover {
         top: 100% !important;
         left: 0 !important;
         right: 0 !important;
+        width: 100% !important;
         background: white !important;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
         z-index: 1000 !important;
+        border: 2px solid red !important; /* Debug: borda vermelha para ver se aparece */
     }
 
     .nav-list {
