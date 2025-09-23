@@ -2029,7 +2029,9 @@ header .nav .nav-list li a:hover {
     }
 
     .badges-container {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .badges-container h4 {
@@ -2039,19 +2041,25 @@ header .nav .nav-list li a:hover {
 
     .badges-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
+        max-width: 100%;
+        padding: 0;
     }
 
     .badge-item {
-        padding: 2rem 1.5rem;
-        gap: 1.5rem;
-        border-radius: 20px;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+        border-radius: 15px;
+        max-width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
     }
 
     .badge-icon {
-        width: 100px;
-        height: 100px;
-        border-radius: 20px;
+        width: 70px;
+        height: 70px;
+        border-radius: 15px;
+        flex-shrink: 0;
     }
 
     .badge-icon i {
@@ -2063,30 +2071,36 @@ header .nav .nav-list li a:hover {
     }
 
     .badge-content h5 {
-        font-size: 1.3rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
     }
 
     .badge-content p {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
-        line-height: 1.5;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
     }
 
     .badge-number,
     .badge-status {
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 600;
     }
 
     .verify-link {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.6rem;
-        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+        margin-top: 0.4rem;
+        border-radius: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
 
     .verify-link i {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 }
 
