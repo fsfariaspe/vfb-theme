@@ -91,6 +91,7 @@ body:not(.menu-open) {
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 0;
+    flex-wrap: nowrap;
 }
 
 .logo img {
@@ -107,6 +108,8 @@ body:not(.menu-open) {
     display: flex;
     list-style: none;
     gap: 2.5rem;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .nav-link {
@@ -120,6 +123,8 @@ body:not(.menu-open) {
     background: transparent !important;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .nav-link::before {
