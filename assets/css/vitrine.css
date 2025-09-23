@@ -1384,7 +1384,7 @@ header .nav .nav-list li a:hover {
     }
 
     .hero-carousel .hero-stats {
-        padding: 0.6rem 0.8rem;
+        padding: 0.5rem 0.8rem;
         gap: 0;
         bottom: 1.5rem;
         max-width: 95%;
@@ -1392,24 +1392,25 @@ header .nav .nav-list li a:hover {
     }
 
     .hero-carousel .stat-item {
-        padding: 0;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
+        padding: 0.25rem 0;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
         min-height: auto;
         height: auto;
+        width: 100%;
     }
 
     .hero-carousel .stat-number {
-        font-size: 1rem;
-        margin-right: 0;
-        margin-bottom: 0.15rem;
+        font-size: 0.8rem;
+        margin-right: 0.6rem;
+        margin-bottom: 0;
         line-height: 1;
     }
 
     .hero-carousel .stat-label {
         font-size: 0.6rem;
-        text-align: center;
+        text-align: left;
         line-height: 1;
     }
 
@@ -1806,22 +1807,22 @@ header .nav .nav-list li a:hover {
     padding: 0 1rem;
 }
 
-/* Mobile: Único quadro com estatísticas dentro */
+/* Mobile: Único quadro com estatísticas verticais */
 @media (max-width: 768px) {
     .hero-carousel .hero-stats {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 0;
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(15px);
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        padding: 0.8rem 1rem;
+        padding: 0.6rem 1rem;
         bottom: 2rem;
         max-width: 90%;
         width: 90%;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
     }
 
@@ -1829,21 +1830,21 @@ header .nav .nav-list li a:hover {
         background: transparent !important;
         border-radius: 0 !important;
         border: none !important;
-        padding: 0;
+        padding: 0.3rem 0;
         margin: 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        justify-content: center;
-        text-align: center;
+        justify-content: space-between;
+        text-align: left;
         min-height: auto;
         height: auto;
-        flex: 1;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .hero-carousel .stat-item:last-child {
-        border-right: none;
+        border-bottom: none;
     }
 
     .hero-carousel .stat-item:hover {
@@ -1852,23 +1853,23 @@ header .nav .nav-list li a:hover {
     }
 
     .hero-carousel .stat-number {
-        font-size: 1.2rem !important;
+        font-size: 0.9rem !important;
         font-weight: 700;
         color: #ff6b35;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        margin-right: 0;
-        margin-bottom: 0.2rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        margin-right: 0.8rem;
+        margin-bottom: 0;
         flex-shrink: 0;
         line-height: 1;
     }
 
     .hero-carousel .stat-label {
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
         color: white;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         flex: 1;
         line-height: 1;
-        text-align: center;
+        text-align: left;
         margin: 0;
     }
 }
