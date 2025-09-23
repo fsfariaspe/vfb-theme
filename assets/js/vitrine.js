@@ -18,7 +18,7 @@ let currentSearchTab = 'flights';
 document.addEventListener('DOMContentLoaded', function () {
   // Garantir que o body não tenha classes problemáticas no carregamento
   document.body.classList.remove('menu-open');
-  
+
   initializeNavigation();
   initializeScrollEffects();
   initializeAnimations();
@@ -366,7 +366,7 @@ window.addEventListener('load', function () {
   document.body.classList.remove('menu-open');
   document.documentElement.style.overflow = 'auto';
   document.body.style.overflow = 'auto';
-  
+
   // Adicionar classe loaded ao body para animações CSS
   document.body.classList.add('loaded');
 });
