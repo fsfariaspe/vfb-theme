@@ -188,14 +188,25 @@ function isElementInViewport(element) {
  * Inicializa o menu mobile
  */
 function initializeMobileMenu() {
+  console.log('🔧 Inicializando menu mobile...');
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const nav = document.querySelector('.nav');
 
+  console.log('📱 mobileMenuToggle:', mobileMenuToggle);
+  console.log('🧭 nav:', nav);
+
   if (mobileMenuToggle && nav) {
+    console.log('✅ Elementos encontrados, adicionando event listeners...');
     mobileMenuToggle.addEventListener('click', function () {
+      console.log('🖱️ Clique no menu mobile detectado!');
       nav.classList.toggle('mobile-active');
       this.classList.toggle('active');
       document.body.classList.toggle('menu-open');
+      console.log('📱 Classes aplicadas:', {
+        'nav.mobile-active': nav.classList.contains('mobile-active'),
+        'button.active': this.classList.contains('active'),
+        'body.menu-open': document.body.classList.contains('menu-open')
+      });
     });
 
     // Fechar menu ao clicar em um link
@@ -216,6 +227,10 @@ function initializeMobileMenu() {
         document.body.classList.remove('menu-open');
       }
     });
+  } else {
+    console.error('❌ Menu mobile não pôde ser inicializado:');
+    console.error('📱 mobileMenuToggle:', mobileMenuToggle);
+    console.error('🧭 nav:', nav);
   }
 }
 
