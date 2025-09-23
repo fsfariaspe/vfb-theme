@@ -1383,37 +1383,6 @@ header .nav .nav-list li a:hover {
         padding: 0;
     }
 
-    .hero-carousel .hero-stats {
-        padding: 0.3rem 0.6rem;
-        gap: 0;
-        bottom: 1.5rem;
-        max-width: 95%;
-        width: 95%;
-        overflow: hidden;
-    }
-
-    .hero-carousel .stat-item {
-        padding: 0.1rem 0;
-        flex-direction: row;
-        text-align: left;
-        justify-content: space-between;
-        min-height: auto;
-        height: auto;
-        width: 100%;
-    }
-
-    .hero-carousel .stat-number {
-        font-size: 0.75rem;
-        margin-right: 0.5rem;
-        margin-bottom: 0;
-        line-height: 1;
-    }
-
-    .hero-carousel .stat-label {
-        font-size: 0.55rem;
-        text-align: left;
-        line-height: 1;
-    }
 
     /* Selos ainda maiores no mobile pequeno */
     .badge-item {
@@ -1808,71 +1777,10 @@ header .nav .nav-list li a:hover {
     padding: 0 1rem;
 }
 
-/* Mobile: Único quadro com estatísticas verticais */
+/* Mobile: Ocultar estatísticas */
 @media (max-width: 768px) {
     .hero-carousel .hero-stats {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(15px);
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        padding: 0.4rem 0.8rem;
-        bottom: 2rem;
-        max-width: 90%;
-        width: 90%;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .hero-carousel .stat-item {
-        background: transparent !important;
-        border-radius: 0 !important;
-        border: none !important;
-        padding: 0.15rem 0;
-        margin: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        text-align: left;
-        min-height: auto;
-        height: auto;
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-carousel .stat-item:last-child {
-        border-bottom: none;
-    }
-
-    .hero-carousel .stat-item:hover {
-        transform: none !important;
-        background: transparent !important;
-    }
-
-    .hero-carousel .stat-number {
-        font-size: 0.85rem !important;
-        font-weight: 700;
-        color: #ff6b35;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        margin-right: 0.6rem;
-        margin-bottom: 0;
-        flex-shrink: 0;
-        line-height: 1;
-    }
-
-    .hero-carousel .stat-label {
-        font-size: 0.6rem !important;
-        color: white;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        flex: 1;
-        line-height: 1;
-        text-align: left;
-        margin: 0;
+        display: none !important;
     }
 }
 
