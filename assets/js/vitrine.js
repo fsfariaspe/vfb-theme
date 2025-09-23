@@ -199,50 +199,80 @@ function initializeMobileMenu() {
   if (mobileMenuToggle && nav) {
     console.log('✅ Adicionando event listener ao botão...');
 
+    // Controle de estado do menu
+    let isMenuOpen = false;
+    let touchStartTime = 0;
+    
     // Função para alternar menu
     function toggleMenu() {
-      console.log('🖱️ Toggle menu chamado!');
+      if (isMenuOpen) {
+        console.log('🔒 Fechando menu...');
+        nav.classList.remove('mobile-active');
+        mobileMenuToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        isMenuOpen = false;
+      } else {
+        console.log('🔓 Abrindo menu...');
+        nav.classList.add('mobile-active');
+        mobileMenuToggle.classList.add('active');
+        document.body.classList.add('menu-open');
+        isMenuOpen = true;
+      }
       
-      const isActive = nav.classList.contains('mobile-active');
-      console.log('📊 Estado atual do menu:', isActive ? 'ABERTO' : 'FECHADO');
-      
-      nav.classList.toggle('mobile-active');
-      mobileMenuToggle.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-      
-      console.log('📊 Novo estado do menu:', nav.classList.contains('mobile-active') ? 'ABERTO' : 'FECHADO');
-      console.log('🎯 Classes aplicadas:', {
-        'nav.mobile-active': nav.classList.contains('mobile-active'),
-        'button.active': mobileMenuToggle.classList.contains('active'),
-        'body.menu-open': document.body.classList.contains('menu-open')
-      });
+      console.log('📊 Estado do menu:', isMenuOpen ? 'ABERTO' : 'FECHADO');
     }
     
-    // Múltiplos event listeners para garantir funcionamento
-    mobileMenuToggle.addEventListener('click', toggleMenu);
+    // Event listener para toque (funciona no mobile real)
+    mobileMenuToggle.addEventListener('touchstart', function(e) {
+      touchStartTime = Date.now();
+      console.log('👆 Touch start detectado!');
+    });
+    
     mobileMenuToggle.addEventListener('touchend', function(e) {
       e.preventDefault();
-      console.log('👆 Touch no menu mobile!');
-      toggleMenu();
+      e.stopPropagation();
+      
+      const touchDuration = Date.now() - touchStartTime;
+      console.log('👆 Touch end detectado! Duração:', touchDuration + 'ms');
+      
+      // Só executa se for um toque rápido (evita conflito com scroll)
+      if (touchDuration < 300) {
+        toggleMenu();
+      }
     });
-    mobileMenuToggle.addEventListener('mousedown', toggleMenu);
+    
+    // Fallback para desktop
+    mobileMenuToggle.addEventListener('click', function(e) {
+      if (!('ontouchstart' in window)) {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
 
     // Fechar menu ao clicar em um link
     const navLinks = nav.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       link.addEventListener('click', function () {
-        nav.classList.remove('mobile-active');
-        mobileMenuToggle.classList.remove('active');
-        document.body.classList.remove('menu-open');
+        if (isMenuOpen) {
+          nav.classList.remove('mobile-active');
+          mobileMenuToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          isMenuOpen = false;
+          console.log('🔒 Menu fechado por clique no link');
+        }
       });
     });
 
     // Fechar menu ao clicar fora
     document.addEventListener('click', function (e) {
       if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-        nav.classList.remove('mobile-active');
-        mobileMenuToggle.classList.remove('active');
-        document.body.classList.remove('menu-open');
+        if (isMenuOpen) {
+          nav.classList.remove('mobile-active');
+          mobileMenuToggle.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          isMenuOpen = false;
+          console.log('🔒 Menu fechado por clique fora');
+        }
       }
     });
   } else {
