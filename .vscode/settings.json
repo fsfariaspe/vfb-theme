@@ -1,0 +1,16 @@
+{
+  "emmet.includeLanguages": {
+    "php": "html"
+  },
+  "files.associations": {
+    "*.php": "php"
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "css.validate": true,
+  "html.validate.styles": true,
+  "php.validate.enable": true,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false
+}
